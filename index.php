@@ -1,3 +1,14 @@
+<?php
+
+include 'components/connect.php';
+
+if(isset($_COOKIE['user_id'])) {
+    $user_id = $_COOKIE['user_id'];
+}else{
+    $user_id = '';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,5 +25,11 @@
     <?php include 'components/user_header.php' ?>
     <!-- End of header -->
     
+
+    <!-- Start of footer -->
+    <?php include 'components/user_footer.php' ?>
+    <!-- End of footer -->
+
+    <script src="js/script.js"></script>
 </body>
 </html>
