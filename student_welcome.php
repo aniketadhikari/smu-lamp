@@ -19,7 +19,7 @@ if(!isset($_SESSION['student_name'])){
    <title>user page</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
@@ -27,12 +27,12 @@ if(!isset($_SESSION['student_name'])){
 <div class="container">
 
    <div class="content">
-      <h3>hi, <span>user</span></h3>
-      <h1>welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
-      <p>this is an user page</p>
-      <a href="login.php" class="btn">login</a>
-      <a href="register.php" class="btn">register</a>
-      <a href="logout.php" class="btn">logout</a>
+      <h3>Hi, <span>student</span></h3>
+      <h1>Welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
+      <a href="login.php" class="btn">Login</a>
+      <a href="register.php" class="btn">Register</a>
+      <a href="logout.php" class="btn">Logout</a>
+      <a href="courses.php" class="btn">Courses</a>
    </div>
 
 </div>

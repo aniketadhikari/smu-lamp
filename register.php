@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
 
-   $select = " SELECT * FROM users WHERE email = '$email' || password = '$pass' ";
+   $select = " SELECT * FROM Users WHERE email = '$email' || password = '$pass' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $error[] = 'password not matched!';
       }else{
-         $insert = "INSERT INTO users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
+         $insert = "INSERT INTO Users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
          header('location:login.php');
       }
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
    <title>register form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
 <div class="form-container">
 
    <form action="" method="post">
-      <h3>register now</h3>
+      <h3>Register Now</h3>
       <?php
       if(isset($error)){
          foreach($error as $error){

@@ -19,7 +19,7 @@ if(!isset($_SESSION['professor_name'])){
    <title>admin page</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
@@ -29,7 +29,6 @@ if(!isset($_SESSION['professor_name'])){
    <div class="content">
       <h3>hi, <span>admin</span></h3>
       <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
-      <p>this is an admin page</p>
       <a href="login.php" class="btn">login</a>
       <a href="register.php" class="btn">register</a>
       <a href="logout.php" class="btn">logout</a>
