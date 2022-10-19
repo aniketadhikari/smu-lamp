@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
       }else{
          $insert = "INSERT INTO Users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
-         header('location:login.php');
+         header('location:index.php');
       }
    }
 
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
          <option value="professor">Professor</option>
       </select>
       <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>already have an account? <a href="login.php">login now</a></p>
+      <p>already have an account? <a href="index.php">login now</a></p>
    </form>
 
 </div>

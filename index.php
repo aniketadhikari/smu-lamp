@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'professor'){
 
          $_SESSION['professor_name'] = $row['name'];
-         header('location:professor_page.php');
+         header('location:professor_welcome.php');
 
       }elseif($row['user_type'] == 'student'){
 

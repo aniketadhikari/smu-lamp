@@ -5,7 +5,7 @@
 session_start();
 
 if(!isset($_SESSION['professor_name'])){
-   header('location:login.php');
+   header('location:index.php');
 }
 
 ?>
@@ -29,9 +29,11 @@ if(!isset($_SESSION['professor_name'])){
    <div class="content">
       <h3>hi, <span>admin</span></h3>
       <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
-      <a href="login.php" class="btn">login</a>
+      <a href="index.php" class="btn">login</a>
       <a href="register.php" class="btn">register</a>
       <a href="logout.php" class="btn">logout</a>
+      <a href="import.php" class="btn">Import Students</a>
+      <a href="students.php" class="btn">Students</a>
    </div>
 
 </div>

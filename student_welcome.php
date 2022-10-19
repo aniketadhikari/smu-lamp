@@ -5,7 +5,7 @@
 session_start();
 
 if(!isset($_SESSION['student_name'])){
-   header('location:login.php');
+   header('location:index.php'); // if not logged in, redirect and go back to home page
 }
 
 ?>
@@ -29,7 +29,7 @@ if(!isset($_SESSION['student_name'])){
    <div class="content">
       <h3>Hi, <span>student</span></h3>
       <h1>Welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
-      <a href="login.php" class="btn">Login</a>
+      <a href="index.php" class="btn">Login</a>
       <a href="register.php" class="btn">Register</a>
       <a href="logout.php" class="btn">Logout</a>
       <a href="courses.php" class="btn">Courses</a>
