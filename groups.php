@@ -16,9 +16,10 @@ if(isset($_POST['submit'])) {
     $group_id = intval(mysqli_real_escape_string($conn, $_POST['group_id']));
     
     // $sql = "UPDATE `students` SET `group_id`= 1 WHERE student_id = 221020051117;";
+    
+    // Make sure student exists otherwise update the table
     $find_student = "SELECT * FROM students WHERE student_id = $student_id;";
     $find_student_result = mysqli_query($conn, $find_student);
-    echo mysqli_num_rows($find_student_result); 
     if (mysqli_num_rows($find_student_result) == 0) {
         $error[] = 'Student does not exist';
     }
@@ -26,6 +27,7 @@ if(isset($_POST['submit'])) {
         $update = "UPDATE students SET group_id=$group_id WHERE student_id = $student_id;";
         mysqli_query($conn, $update);
     }
+    header('location:groups.php');
 }
 ?>
 
@@ -46,6 +48,8 @@ if(isset($_POST['submit'])) {
         <div class="row">
             <a href="logout.php" class="btn">Logout</a>
             <a href="student_welcome.php" class="btn">Dashboard</a>
+            <a href="students.php" class="btn">Students</a>
+            <a href="import.php" class="btn">Import Students</a>
             <h3 class="center">Students</h3>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each Student -->

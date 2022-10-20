@@ -24,20 +24,25 @@ if(!isset($_SESSION['professor_name'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
     <title>SMU Courses</title>
 </head>
 
-<body>
+<body style="
+    background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
+    background-size: cover;">
     <div class="container">
         <div class="row">
         <a href="logout.php" class="btn">Logout</a>
         <a href="professor_welcome.php" class="btn">Dashboard</a>
+        <a href="import.php" class="btn">Import Students</a>
+        <a href="groups.php" class="btn">Assign and View Groups</a>
             <h3 class="center">Course Names</h3>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
-                        <div class="card-panel valign center">
+                        <div class="card-panel center" style="background-color: #151c55; color: white;">
                             <span class="card-title"><h4><?php echo htmlspecialchars($student['name']); ?></h4></span>
                             <h6>Email: <?php echo htmlspecialchars($student['email']); ?></h6>
                             <h6>Student ID: <?php echo htmlspecialchars($student['student_id']); ?></h6>
