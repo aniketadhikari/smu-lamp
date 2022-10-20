@@ -9,12 +9,11 @@ session_start();
 // }
 
 // query for all of the courses in the Courses table 
-$select = "SELECT * FROM Courses";
+$select = "SELECT * FROM courses";
 $result = mysqli_query($conn, $select);
 
 
 $courses = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 mysqli_free_result($result);
 ?>
 
