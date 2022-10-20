@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
             // create a student ID using 65 (area code), month, day, year, hour, minutes, seconds
             // 65 + month (MM) + minutes (MM) + 24-hour (HH) + Seconds (SS)
             $student_id = date("ymdHis",time());
-            mysqli_query($conn, "INSERT INTO students(student_id, name, email) VALUES ('$student_id','$name', '$email')");
+            mysqli_query($conn, "INSERT INTO students(student_id, name, email) VALUES('$student_id','$name', '$email')");
          }
          header('location:index.php');
       }
