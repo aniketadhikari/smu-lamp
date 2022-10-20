@@ -12,9 +12,9 @@ $conn = mysqli_connect('127.0.0.1','root','EMRslAL8Q8Mj','SMU');
 if (!$conn) {
     echo "Connection could not be established";
 }
-else if ($conn) {
-    echo "Connection established";
-}
+// else if ($conn) {
+//     echo "Connection established";
+// }
 
 ?>
 

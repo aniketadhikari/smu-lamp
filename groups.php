@@ -39,18 +39,20 @@ if(isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title>Student Groups</title>
 </head>
 
-<body>
+<body style="
+    background-image: url('https://images3.alphacoders.com/104/1044851.jpg');
+    background-size: cover;">
     <div class="container">
         <div class="row">
             <a href="logout.php" class="btn">Logout</a>
             <a href="student_welcome.php" class="btn">Dashboard</a>
             <a href="students.php" class="btn">Students</a>
             <a href="import.php" class="btn">Import Students</a>
-            <h3 class="center">Students</h3>
+            <h4 class="center">Assign Student Groups</h4>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each Student -->
                 <div class="col s6 md3">
@@ -78,7 +80,6 @@ if(isset($_POST['submit'])) {
         </div>
         <div class="container">
             <form action="" method="post">
-                <h5>Specify Student ID of student being assigned a group and the Group ID to assign the student to</h5>
                 <?php
                 if(isset($error)){
                     foreach($error as $error){
