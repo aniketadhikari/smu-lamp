@@ -30,7 +30,8 @@ if(isset($_POST['submit'])){
             // create a student ID using 65 (area code), month, day, year, hour, minutes, seconds
             // 65 + month (MM) + minutes (MM) + 24-hour (HH) + Seconds (SS)
             $student_id = date("ymdHis",time());
-            mysqli_query($conn, "INSERT INTO students(student_id) VALUES('$student_id')");
+            // "INSERT INTO `students`(`student_id`, `name`, `email`, `phone_number`, `date_of_birth`, `semester`, `grade_level`, `group_id`) VALUES (1,\'[value-2]\',\'[value-3]\',\'[value-4]\', NULL, 1,\'[value-7]\', 1);";
+            mysqli_query($conn, "INSERT INTO students(student_id, name, email, phone_number, date_of_birth, semester, grade_level, group_id) VALUES('$student_id', '$name', '$email', '', NULL, 0, '', 0)");
          }
          header('location:index.php');
       }
