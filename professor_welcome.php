@@ -30,6 +30,7 @@ if(!isset($_SESSION['professor_name'])){
          <a href="logout.php" class="btn">logout</a>
          <a href="import.php" class="btn">Import Students</a>
          <a href="students.php" class="btn">Students</a>
+         <a href="groups.php" class="btn">Assign and View Groups</a>
          
       </div>
    

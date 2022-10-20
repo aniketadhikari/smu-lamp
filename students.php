@@ -35,9 +35,9 @@ if(!isset($_SESSION['professor_name'])){
             <h3 class="center">Course Names</h3>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each course -->
-                <div class="col s4 md3">
+                <div class="col s6 md3">
                     <div class="card z-depth-2">
-                        <div class="card medium valign center">
+                        <div class="card-panel valign center">
                             <span class="card-title"><h4><?php echo htmlspecialchars($student['name']); ?></h4></span>
                             <h6>Email: <?php echo htmlspecialchars($student['email']); ?></h6>
                             <h6>Student ID: <?php echo htmlspecialchars($student['student_id']); ?></h6>

@@ -4,9 +4,9 @@
 
 session_start();
 
-// if (!isset($_SESSION['student_name'])) {
-//     header('location:index.php'); // if not logged in, redirect and go back to home page
-// }
+if (!isset($_SESSION['student_name'])) {
+    header('location:index.php'); // if not logged in, redirect and go back to home page
+}
 
 // query for all of the courses in the Courses table 
 $select = "SELECT * FROM courses";
