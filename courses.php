@@ -4,9 +4,9 @@
 
 session_start();
 
-if (!isset($_SESSION['student_name'])) {
-    header('location:index.php'); // if not logged in, redirect and go back to home page
-}
+// if (!isset($_SESSION['student_name'])) {
+//     header('location:index.php'); // if not logged in, redirect and go back to home page
+// }
 
 // query for all of the courses in the Courses table 
 $select = "SELECT * FROM Courses";
@@ -40,8 +40,8 @@ mysqli_free_result($result);
                 <div class="col s4 md3">
                     <div class="card z-depth-2">
                         <div class="card-panel center">
-                            <h4><?php echo htmlspecialchars($course['CourseName']); ?></h4>
-                            <h6><?php echo htmlspecialchars($course['Program']); ?></h6>
+                            <h4><?php echo htmlspecialchars($course['course_name']); ?></h4>
+                            <h6><?php echo htmlspecialchars($course['program']); ?></h6>
                         </div>
                     </div>
                 </div>
