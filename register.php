@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
 
-   $select = " SELECT * FROM Users WHERE email = '$email' || password = '$pass' ";
+   $select = " SELECT * FROM users WHERE email = '$email' || password = '$pass' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -26,16 +26,17 @@ if(isset($_POST['submit'])){
          $insert = "INSERT INTO users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
          if ($user_type == 'student') {
+         
             // create a student ID using 65 (area code), month, day, year, hour, minutes, seconds
             // 65 + month (MM) + minutes (MM) + 24-hour (HH) + Seconds (SS)
             $student_id = date("ymdHis",time());
-            mysqli_query($conn, "INSERT INTO students(student_id, name, email) VALUES('$student_id','$name', '$email')");
+            mysqli_query($conn, "INSERT INTO students(student_id) VALUES('$student_id')");
          }
          header('location:index.php');
       }
    }
 
-};
+}
 
 
 ?>

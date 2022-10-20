@@ -31,16 +31,20 @@ mysqli_free_result($result);
 <body>
     <div class="container">
         <div class="row">
-        <a href="logout.php" class="btn">Logout</a>
-        <a href="student_welcome.php" class="btn">Dashboard</a>
+            <a href="logout.php" class="btn">Logout</a>
+            <a href="student_welcome.php" class="btn">Dashboard</a>
             <h3 class="center">Course Names</h3>
             <?php foreach ($courses as $course) { ?>
                 <!-- create a card for each course -->
-                <div class="col s4 md3">
+                <div class="col s6 md3">
                     <div class="card z-depth-2">
-                        <div class="card-panel center">
-                            <h4><?php echo htmlspecialchars($course['course_name']); ?></h4>
-                            <h6><?php echo htmlspecialchars($course['program']); ?></h6>
+                        <div class="card-panel center" style="background-color: #151c55; color: white;">
+                            <div class="card-title">
+                                <h5><?php echo htmlspecialchars($course['course_name']); ?></h5>
+                            </div>
+                            <div class="card-content">
+                                <p><?php echo htmlspecialchars($course['program']); ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
