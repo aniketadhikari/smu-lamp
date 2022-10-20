@@ -25,6 +25,12 @@ if(isset($_POST['submit'])){
       }else{
          $insert = "INSERT INTO Users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
+         if ($user_type == 'student') {
+            // create a student ID using 65 (area code), month, day, year, hour, minutes, seconds
+            // 65 + month (MM) + minutes (MM) + 24-hour (HH) + Seconds (SS)
+            $student_id = date("ymdHis",time());
+            mysqli_query($conn, "INSERT INTO students(student_id, name, email) VALUES ($student_id,'$name', '$email')");
+         }
          header('location:index.php');
       }
    }

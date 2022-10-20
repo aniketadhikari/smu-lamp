@@ -3,6 +3,15 @@
 @include 'config.php';
 
 session_start();
+// if logged in, redirect and go immediately to professor welcome page
+if(isset($_SESSION['professor_name'])){
+   header('location:professor_welcome.php'); 
+}
+
+// if logged in, redirect and go immediately to student welcome page
+if(isset($_SESSION['student_name'])){
+   header('location:student_welcome.php'); 
+}
 
 if(isset($_POST['submit'])){
 
@@ -54,22 +63,22 @@ if(isset($_POST['submit'])){
 <body>
    
 <div class="form-container">
-
    <form action="" method="post">
-      <h3>login now</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
+      
+         <h3>login now</h3>
+         <?php
+         if(isset($error)){
+            foreach($error as $error){
+               echo '<span class="error-msg">'.$error.'</span>';
+            };
          };
-      };
-      ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register.php">register now</a></p>
+         ?>
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="submit" name="submit" value="login now" class="form-btn">
+         <p>Don't have an account? <a href="register.php">register now</a></p>
+      
    </form>
-
 </div>
 
 </body>

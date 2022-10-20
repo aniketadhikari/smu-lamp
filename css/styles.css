@@ -30,7 +30,7 @@
    background: #151c55;
    color:#fff;
    border-radius: 5px;
-   padding:0 15px;
+   padding: 3px 15px;
 }
 
 .container .content h1{
@@ -68,7 +68,8 @@
    justify-content: center;
    padding:20px;
    padding-bottom: 60px;
-   background: #151c55;
+   background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg");
+   background-size: cover;
 }
 
 .form-container form{
@@ -102,8 +103,8 @@
 }
 
 .form-container form .form-btn{
-   background: #846d2c;
-   color:rgb(0, 0, 0);
+   background: #151c55;
+   color:rgb(255, 255, 255);
    text-transform: capitalize;
    font-size: 20px;
    cursor: pointer;

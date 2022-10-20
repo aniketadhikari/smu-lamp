@@ -29,8 +29,6 @@ if(!isset($_SESSION['student_name'])){
    <div class="content">
       <h3>Hi, <span>student</span></h3>
       <h1>Welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
-      <a href="index.php" class="btn">Login</a>
-      <a href="register.php" class="btn">Register</a>
       <a href="logout.php" class="btn">Logout</a>
       <a href="courses.php" class="btn">Courses</a>
    </div>

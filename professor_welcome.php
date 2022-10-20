@@ -23,20 +23,19 @@ if(!isset($_SESSION['professor_name'])){
 
 </head>
 <body>
+   <div class="container">
+      <div class="content">
+         <h3>hello, <span>professor</span></h3>
+         <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
+         <a href="logout.php" class="btn">logout</a>
+         <a href="import.php" class="btn">Import Students</a>
+         <a href="students.php" class="btn">Students</a>
+         
+      </div>
    
-<div class="container">
-
-   <div class="content">
-      <h3>hi, <span>admin</span></h3>
-      <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
-      <a href="index.php" class="btn">login</a>
-      <a href="register.php" class="btn">register</a>
-      <a href="logout.php" class="btn">logout</a>
-      <a href="import.php" class="btn">Import Students</a>
-      <a href="students.php" class="btn">Students</a>
    </div>
 
-</div>
+   
 
 </body>
 </html>
