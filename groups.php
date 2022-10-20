@@ -7,9 +7,11 @@ session_start();
 $select = "SELECT * FROM students";
 $result = mysqli_query($conn, $select);
 
+$students = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+
 if(isset($_POST['submit'])) {
-    $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    mysqli_free_result($result);
+    
     $student_id = intval(mysqli_real_escape_string($conn, $_POST['student_id']));
     $group_id = intval(mysqli_real_escape_string($conn, $_POST['group_id']));
     
