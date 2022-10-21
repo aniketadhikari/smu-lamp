@@ -23,7 +23,7 @@
 
 .container .content h3{
    font-size: 30px;
-   color:#333;
+   color:black;
 }
 
 .container .content h3 span{
@@ -35,7 +35,7 @@
 
 .container .content h1{
    font-size: 50px;
-   color:#333;
+   color:black;
 }
 
 .container .content h1 span{
@@ -51,7 +51,7 @@
    display: inline-block;
    padding:10px 30px;
    font-size: 20px;
-   background: #333;
+   background: black;
    color:#fff;
    margin:0 5px;
    text-transform: capitalize;
@@ -85,7 +85,7 @@
    font-size: 30px;
    text-transform: uppercase;
    margin-bottom: 10px;
-   color:#333;
+   color:black;
 }
 
 .form-container form input,
@@ -118,7 +118,7 @@
 .form-container form p{
    margin-top: 10px;
    font-size: 20px;
-   color:#333;
+   color:black;
 }
 
 .form-container form p a{
@@ -211,3 +211,4 @@ nav a:hover {
  .dd:hover .ddbtn, .dd:hover {
    background-color: #5f4d1e;
  }
+ 

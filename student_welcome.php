@@ -25,9 +25,8 @@ if(!isset($_SESSION['student_name'])){
 </head>
 <body>
    
-<div class="container">
-
-   <div class="content">
+<div class="container" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);">
+      <div class="content" style="background-color:rgba(25, 25, 25, 0.25);padding:10px;">
       <h3>Hi, <span>student</span></h3>
       <h1>Welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
       <a href="logout.php" class="btn">Logout</a>

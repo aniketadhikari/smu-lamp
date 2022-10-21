@@ -10,20 +10,19 @@ $result = mysqli_query($conn, $select);
 $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
 
-if(isset($_POST['submit'])) {
-    
-    $student_id = intval(mysqli_real_escape_string($conn, $_POST['student_id']));
+if (isset($_POST['submit'])) {
+
+    $student_id = intval(mysqli_real_escape_string($conn, $_POST['student_name']));
     $group_id = intval(mysqli_real_escape_string($conn, $_POST['group_id']));
-    
+
     // $sql = "UPDATE `students` SET `group_id`= 1 WHERE student_id = 221020051117;";
-    
+
     // Make sure student exists otherwise update the table
     $find_student = "SELECT * FROM students WHERE student_id = $student_id;";
     $find_student_result = mysqli_query($conn, $find_student);
     if (mysqli_num_rows($find_student_result) == 0) {
         $error[] = 'Student does not exist';
-    }
-    else {
+    } else {
         $update = "UPDATE students SET group_id=$group_id WHERE student_id = $student_id;";
         mysqli_query($conn, $update);
     }
@@ -81,20 +80,25 @@ if(isset($_POST['submit'])) {
         <div class="container">
             <form action="" method="post">
                 <?php
-                if(isset($error)){
-                    foreach($error as $error){
-                        echo '<span class="error-msg">'.$error.'</span>';
+                if (isset($error)) {
+                    foreach ($error as $error) {
+                        echo '<span class="error-msg">' . $error . '</span>';
                     };
                 };
                 ?>
+                
                 <div>
-                    <p>Student ID</p>
-                    <input type="" minlength="12" max-length="12" name="student_id" required placeholder="Enter Student ID">
-                </div>
-                <div>
-                    <p>New Group #</p>
+                    <label for="group_id">Enter Group ID:</label>
+                    <br>
                     <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter New Group #">
                 </div>
+
+                <label for="student_name">Select Student:</label>
+                <select name="student_name" id="student_name" style="display: block;">
+                    <?php foreach ($students as $student) { ?>
+                        <option value="<?php echo htmlspecialchars($student['student_id']) ?>"><?php echo htmlspecialchars($student['name']); ?></option>
+                    <?php } ?>
+                </select>
                 <br>
                 <input type="submit" name="submit" value="Assign Group" style="
                 background: #151c55;
@@ -109,5 +113,5 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 </body>
-</html>
 
+</html>

@@ -23,8 +23,8 @@ if(!isset($_SESSION['professor_name'])){
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
 </head>
 <body>
-   <div class="container">
-      <div class="content">
+   <div class="container" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);">
+      <div class="content" style="background-color:rgba(25, 25, 25, 0.25);padding:10px;">
          <h3>hello, <span>professor</span></h3>
          <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
          <a href="logout.php" class="btn">logout</a>
