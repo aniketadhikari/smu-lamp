@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/header.css">
 </head>
 <header>
     <div class="t-header">
@@ -12,8 +11,8 @@
         </div>
         <div class="navbar">
             <nav style="background-color:#151c55; display:flex">
-                <a href="#">Home</a>
-                <a href="#">About</a>
+                <a href="index.php">Home</a>
+                <a href="about.php">About</a>
                 <div class="dd">
                     <button class="ddbtn">Departments</button>
                     <div class="dd-content">
