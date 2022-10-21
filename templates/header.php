@@ -14,7 +14,7 @@
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <div class="dd">
-                    <button class="ddbtn">Dropdown</button>
+                    <button class="ddbtn">Departments</button>
                     <div class="dd-content">
                         <a href="https://cis.smu.edu.sg/">Bachelor of Integrative Studies</a>
                         <a href="https://admissions.smu.edu.sg/programmes/school-accountancy/school-accountancy">School of Accountancy</a>
@@ -24,6 +24,7 @@
             </nav>
         </div>
         <div class="logo" style="transform: scaleX(-1);">
+            <img src="https://haironearthnorthoaks.com/wp-content/uploads/2018/05/white-square-png-98-images-in-collection-page-2-white-square-png-585_585.png" alt="SMU Logo" width="100px" style="background-color: white;">
             <img src="https://www.smu.edu.sg/themes/smubase_4g/svg/oblique.svg" alt="oblique" height="100px">
         </div>
     </div>

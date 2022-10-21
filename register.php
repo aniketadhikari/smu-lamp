@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
-   
+<?php require("./templates/header.php"); ?>
 <div class="form-container">
 
    <form action="" method="post">

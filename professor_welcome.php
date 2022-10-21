@@ -21,7 +21,6 @@ if(!isset($_SESSION['professor_name'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
-   <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
 </head>
 <body>
    <div class="container">
@@ -31,7 +30,7 @@ if(!isset($_SESSION['professor_name'])){
          <a href="logout.php" class="btn">logout</a>
          <a href="import.php" class="btn">Import Students</a>
          <a href="students.php" class="btn">Students</a>
-         <a href="groups.php" class="btn">Assign and View Groups</a>
+         <a href="groups.php" class="btn">Assign Groups</a>
          
       </div>
    
