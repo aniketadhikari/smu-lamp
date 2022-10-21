@@ -32,11 +32,12 @@ if(!isset($_SESSION['professor_name'])){
     background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
     background-size: cover;">
     <div class="container">
-        <div class="row">
-        <a href="logout.php" class="btn">Logout</a>
-        <a href="professor_welcome.php" class="btn">Dashboard</a>
-        <a href="import.php" class="btn">Import Students</a>
-        <a href="groups.php" class="btn">Assign and View Groups</a>
+    <div class="row center">
+            <a href="logout.php" class="btn indigo">Logout</a>
+            <a href="student_welcome.php" class="btn indigo">Dashboard</a>
+            <a href="students.php" class="btn indigo">Students</a>
+            <a href="import.php" class="btn indigo">Import Students</a>
+            <a href="groups.php" class="btn indigo">Assign Groups</a>
             <h3 class="center">Student Names</h3>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each course -->

@@ -39,24 +39,24 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
+    <link rel="stylesheet" href="css/groups.css">
     <title>Student Groups</title>
 </head>
 
-<body style="
-    background-image: url('https://images3.alphacoders.com/104/1044851.jpg');
-    background-size: cover;">
-    <div class="container">
-        <div class="row">
-            <a href="logout.php" class="btn">Logout</a>
-            <a href="student_welcome.php" class="btn">Dashboard</a>
-            <a href="students.php" class="btn">Students</a>
-            <a href="import.php" class="btn">Import Students</a>
+<body>
+    <div class="container" style="background-color:rgba(150, 150, 150, 0.4); padding: 10px">
+        <div class="row center">
+            <a href="logout.php" class="btn indigo">Logout</a>
+            <a href="student_welcome.php" class="btn indigo">Dashboard</a>
+            <a href="students.php" class="btn indigo">Students</a>
+            <a href="import.php" class="btn indigo">Import Students</a>
+            <a href="groups.php" class="btn indigo">Assign Groups</a>
             <h4 class="center">Assign Student Groups</h4>
             <?php foreach ($students as $student) { ?>
                 <!-- create a card for each Student -->
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
-                        <div class="card-panel center" style="background-color: #151c55; color: white;">
+                        <div class="card-panel center" >
                             <div class="card-title">
                                 <h5><?php echo htmlspecialchars($student['name']); ?></h5>
                             </div>
@@ -88,27 +88,19 @@ if (isset($_POST['submit'])) {
                 ?>
                 
                 <div>
-                    <label for="group_id">Enter Group ID:</label>
+                    <label for="group_id" style="color: black;">Enter Group ID:</label>
                     <br>
-                    <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter New Group #">
+                    <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
                 </div>
 
-                <label for="student_name">Select Student:</label>
+                <label for="student_name" style="color: black" >Select Student:</label>
                 <select name="student_name" id="student_name" style="display: block;">
                     <?php foreach ($students as $student) { ?>
                         <option value="<?php echo htmlspecialchars($student['student_id']) ?>"><?php echo htmlspecialchars($student['name']); ?></option>
                     <?php } ?>
                 </select>
                 <br>
-                <input type="submit" name="submit" value="Assign Group" style="
-                background: #151c55;
-                color:rgb(255, 255, 255);
-                text-transform: capitalize;
-                font-size: 20px;
-                cursor: pointer;
-                padding: 10px;
-                border-radius: 15px;
-                ">
+                <input class="submit" type="submit" name="submit" value="Assign Group">
             </form>
         </div>
     </div>

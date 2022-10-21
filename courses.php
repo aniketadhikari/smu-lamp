@@ -33,9 +33,10 @@ mysqli_free_result($result);
     background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
     background-size: cover;">
     <div class="container">
-        <div class="row">
-            <a href="logout.php" class="btn">Logout</a>
-            <a href="student_welcome.php" class="btn">Dashboard</a>
+        <div class="row center">
+            <a href="logout.php" class="btn indigo">Logout</a>
+            <a href="student_welcome.php" class="btn indigo">Dashboard</a>
+            <a href="courses.php" class="btn indigo">Courses</a>
             <h3 class="center">Course Names</h3>
             <?php foreach ($courses as $course) { ?>
                 <!-- create a card for each course -->
