@@ -9,12 +9,12 @@ if (!isset($_SESSION['student_name'])) {
 }
 
 // query for all of the courses in the Courses table 
-$select = "SELECT * FROM courses";
-$result = mysqli_query($conn, $select);
+$select = "SELECT * FROM Course";
+$result = sqlsrv_query($conn, $select);
 
 
-$courses = mysqli_fetch_all($result, MYSQLI_ASSOC);
-mysqli_free_result($result);
+// $courses = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+// sqlsrv_free_stmt($result);
 ?>
 
 <!DOCTYPE html>
@@ -33,21 +33,22 @@ mysqli_free_result($result);
     background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
     background-size: cover;">
     <div class="container">
+        
         <div class="row center">
             <a href="logout.php" class="btn indigo">Logout</a>
             <a href="student_welcome.php" class="btn indigo">Dashboard</a>
             <a href="courses.php" class="btn indigo">Courses</a>
             <h3 class="center">Course Names</h3>
-            <?php foreach ($courses as $course) { ?>
+            <?php while($course = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
                         <div class="card-panel center" style="background-color: #151c55; color: white;">
                             <div class="card-title">
-                                <h5><?php echo htmlspecialchars($course['course_name']); ?></h5>
+                                <h5><?php echo htmlspecialchars($course['CourseName']); ?></h5>
                             </div>
                             <div class="card-content">
-                                <p><?php echo htmlspecialchars($course['program']); ?></p>
+                                <p><?php echo htmlspecialchars($course['Program']); ?></p>
                             </div>
                         </div>
                     </div>
