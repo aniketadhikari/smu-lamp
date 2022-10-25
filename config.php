@@ -44,8 +44,5 @@ mysqli_real_connect($conn, $server, $user, $pass, $db_name, $port);
 if (!$conn) {
     echo "Connection could not be established";
 }
-else if ($conn) {
-    echo "Connection established";
-}
 ?> 
 
