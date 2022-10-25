@@ -4,19 +4,18 @@
 
 if(isset($_POST['submit'])){
 
-   $first_name = $_POST['first_name'];
-   $last_name = $_POST['last_name'];
-   $email = $_POST['email'];
-   $pass = $_POST['password'];
-   $cpass = $_POST['cpassword'];
+   $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+   $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = md5($_POST['password']);
+   $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
 
-   extract($_POST);
+   $select = " SELECT * FROM Users WHERE EmailAddress = '$email' || Password = '$pass' ";
 
-   $sql = " SELECT * FROM Users WHERE email = '$email' OR password = '$pass' ";
-   $result = sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
+   $result = mysqli_query($conn, $select);
 
-   if(sqlsrv_has_rows($result) > 0){
+   if(mysqli_num_rows($result) > 0){
 
       $error[] = 'user already exist!';
 
@@ -25,20 +24,16 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $error[] = 'password not matched!';
       }else{
+         $insert = "INSERT INTO Users(FirstName, LastName, EmailAddress, Password, UserType) VALUES('$first_name','$last_name','$email','$pass','$user_type')";
+         mysqli_query($conn, $insert);
          if ($user_type == 'student') {
-            $student_id = 5 . date("ymdH",time());
-            $insert = "INSERT INTO Users(ID, FirstName, LastName, email, password, user_type) VALUES('$student_id', '$first_name', '$last_name', '$email','$pass','$user_type')";
-            // echo $student_insert;
-            sqlsrv_query($conn, "INSERT INTO Student(StudentID, FirstName, LastName, EmailAddress, PhoneNumber, Semester, GradeLevel, Major, GroupID) VALUES('$student_id', '$first_name', '$last_name', '$email', '', NULL, 0, '', 0)");
+            mysqli_query($conn, "INSERT INTO Student(FirstName, LastName, EmailAddress, PhoneNumber, Semester, Major, GradeLevel, GroupID) VALUES('$first_name','$last_name', '$email', NULL, NULL, NULL, NULL, 0)");
          }
-         else {
-            $professor_id = 7 . date("ymdH",time());
-            $insert = "INSERT INTO Users(ID, FirstName, LastName, email, password, user_type) VALUES('$professor_id', '$first_name', '$last_name', '$email','$pass','$user_type')";
+         elseif ($user_type == 'professor') {
+            mysqli_query($conn, "INSERT INTO Professor(FirstName, LastName, EmailAddress, PhoneNumber, DepartmentID) VALUES('$first_name','$last_name', '$email', NULL, NULL)");
          }
-         sqlsrv_query($conn, $insert);
-         
+         header('location:index.php');
       }
-      header('location:index.php');
    }
 
 }

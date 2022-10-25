@@ -9,7 +9,11 @@ if(!isset($_SESSION['professor_name'])){
  }
 
     $select = "SELECT * FROM Student";
-    $result = sqlsrv_query($conn, $select);
+    $result = mysqli_query($conn, $select);
+    
+    $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    mysqli_free_result($result);
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +39,12 @@ if(!isset($_SESSION['professor_name'])){
             <a href="import.php" class="btn indigo">Import Students</a>
             <a href="groups.php" class="btn indigo">Assign Groups</a>
             <h3 class="center">Student Names</h3>
-            <?php while($student = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) { ?>
+            <?php foreach ($students as $student) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
                         <div class="card-panel center" style="background-color: #151c55; color: white;">
-                            <span class="card-title"><h4><?php echo htmlspecialchars($student['FirstName']); ?></h4></span>
+                            <span class="card-title"><h4><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['FirstName']); ?></h4></span>
                             <h6>Email: <?php echo htmlspecialchars($student['EmailAddress']); ?></h6>
                             <h6>Student ID: <?php echo htmlspecialchars($student['StudentID']); ?></h6>
                         </div>

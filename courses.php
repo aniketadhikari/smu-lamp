@@ -10,11 +10,11 @@ if (!isset($_SESSION['student_name'])) {
 
 // query for all of the courses in the Courses table 
 $select = "SELECT * FROM Course";
-$result = sqlsrv_query($conn, $select);
+$result = mysqli_query($conn, $select);
 
 
-// $courses = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
-// sqlsrv_free_stmt($result);
+$courses = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +33,12 @@ $result = sqlsrv_query($conn, $select);
     background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
     background-size: cover;">
     <div class="container">
-        
         <div class="row center">
             <a href="logout.php" class="btn indigo">Logout</a>
             <a href="student_welcome.php" class="btn indigo">Dashboard</a>
             <a href="courses.php" class="btn indigo">Courses</a>
             <h3 class="center">Course Names</h3>
-            <?php while($course = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) { ?>
+            <?php foreach ($courses as $course) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
