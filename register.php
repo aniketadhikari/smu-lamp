@@ -11,27 +11,29 @@ if(isset($_POST['submit'])){
    $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
 
-   $select = " SELECT * FROM Users WHERE EmailAddress = '$email' || Password = '$pass' ";
-
-   $result = mysqli_query($conn, $select);
-
-   if(mysqli_num_rows($result) > 0){
-
+   $validate_count = 0;
+   // Check if the user is allowed to register with the student email
+   $validate_students = "SELECT * FROM Student WHERE EmailAddress = '$email'";
+   $validate_student_q = mysqli_query($conn, $validate_students);
+   $validate_count += mysqli_num_rows($validate_student_q);
+   // check if the user is allowed to register with the professor email 
+   $validate_professors = "SELECT * FROM Professor WHERE EmailAddress = '$email'";
+   $validate_professor_q = mysqli_query($conn, $validate_professors);
+   $validate_count += mysqli_num_rows($validate_professor_q);
+   // Check if the user has already been registered
+   $duplicates = " SELECT * FROM Users WHERE EmailAddress = '$email'";
+   $duplicates_q = mysqli_query($conn, $duplicates);
+   if($validate_count == 0) {
+      $error[] = 'user not cleared to register!';
+   }
+   elseif(mysqli_num_rows($duplicates_q) > 0){
       $error[] = 'user already exist!';
-
    }else{
-
       if($pass != $cpass){
          $error[] = 'password not matched!';
       }else{
          $insert = "INSERT INTO Users(FirstName, LastName, EmailAddress, Password, UserType) VALUES('$first_name','$last_name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
-         if ($user_type == 'student') {
-            mysqli_query($conn, "INSERT INTO Student(FirstName, LastName, EmailAddress, PhoneNumber, Semester, Major, GradeLevel, GroupID) VALUES('$first_name','$last_name', '$email', NULL, NULL, NULL, NULL, 0)");
-         }
-         elseif ($user_type == 'professor') {
-            mysqli_query($conn, "INSERT INTO Professor(FirstName, LastName, EmailAddress, PhoneNumber, DepartmentID) VALUES('$first_name','$last_name', '$email', NULL, NULL)");
-         }
          header('location:index.php');
       }
    }

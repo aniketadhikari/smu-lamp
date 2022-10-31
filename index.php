@@ -15,11 +15,8 @@ if(isset($_SESSION['student_name'])){
 
 if(isset($_POST['submit'])){
 
-   // $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
-   // $cpass = md5($_POST['cpassword']);
-   // $user_type = $_POST['user_type'];
 
    $select = " SELECT * FROM Users WHERE EmailAddress = '$email' && Password = '$pass' ";
 
@@ -32,11 +29,17 @@ if(isset($_POST['submit'])){
       if($row['UserType'] == 'professor'){
 
          $_SESSION['professor_name'] = $row['FirstName'];
+         $professorid_q = " SELECT * FROM Professor WHERE EmailAddress = '$email'";
+         $professorid_q_result = mysqli_query($conn, $professorid_q);
+         $professorid_q_row = mysqli_fetch_array($professorid_q_result);
+         // store professor id 
+         $_SESSION['professor_id'] = $professorid_q_row['ProfessorID'];
          header('location:professor_welcome.php');
 
       }elseif($row['UserType'] == 'student'){
 
          $_SESSION['student_name'] = $row['FirstName'];
+         $_SESSION['student_id'] = $row['StudentID'];
          header('location:student_welcome.php');
 
       }
@@ -59,6 +62,8 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
+   
+
 </head>
 <body>
 <?php require("./templates/header.php"); ?>

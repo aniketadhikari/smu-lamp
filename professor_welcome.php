@@ -21,10 +21,24 @@ if(!isset($_SESSION['professor_name'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
+   <style>
+        img.background {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            filter: blur(5px);
+        }
+    </style>
 </head>
+
+<img class="background" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg" alt="SMU Admin Building">
+
 <body>
-   <div class="container" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);">
-      <div class="content" style="background-color:rgba(25, 25, 25, 0.25);padding:10px;">
+   <div class="container">
+      <div class="content">
          <h3>hello, <span>professor</span></h3>
          <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
          <a href="logout.php" class="btn">logout</a>
