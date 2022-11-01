@@ -54,10 +54,36 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 </head>
 <body>
-<?php require("./templates/header.php"); ?>
+<header>
+    <div class="t-header">
+        <div class="logo">
+            <img src="https://www.smu.edu.sg/themes/smubase_4g/svg/logo-d-smu.svg" alt="SMU Logo" width="100px" style="background-color: white;">
+            <img src="https://www.smu.edu.sg/themes/smubase_4g/svg/oblique.svg" alt="oblique" height="100px">
+        </div>
+        <div class="navbar">
+            <nav style="background-color:#151c55; display:flex">
+                <a href="index.php">Home</a>
+                <a href="about.php">About</a>
+                <div class="dd">
+                    <button class="ddbtn">Departments</button>
+                    <div class="dd-content">
+                        <a href="https://cis.smu.edu.sg/">Bachelor of Integrative Studies</a>
+                        <a href="https://admissions.smu.edu.sg/programmes/school-accountancy/school-accountancy">School of Accountancy</a>
+                        <a href="https://admissions.smu.edu.sg/programmes/lee-kong-chian-school-business/bachelor-business-management">Bachelor of Business Administration</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="logo" style="transform: scaleX(-1);">
+            <img src="https://haironearthnorthoaks.com/wp-content/uploads/2018/05/white-square-png-98-images-in-collection-page-2-white-square-png-585_585.png" alt="SMU Logo" width="100px" style="background-color: white;">
+            <img src="https://www.smu.edu.sg/themes/smubase_4g/svg/oblique.svg" alt="oblique" height="100px">
+        </div>
+    </div>
+</header>
 <div class="form-container">
 
    <form action="" method="post">

@@ -76,11 +76,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container" style="padding: 10px;">
         <div class="row center">
-            <a href="logout.php" class="btn indigo">Logout</a>
-            <a href="student_welcome.php" class="btn indigo">Dashboard</a>
-            <a href="students.php" class="btn indigo">Students</a>
-            <a href="import.php" class="btn indigo">Import Students</a>
-            <a href="groups.php" class="btn indigo">Assign Groups</a>
+        <?php include 'templates/professor_nav.php'?>
             <h4 class="center">Assign Student Groups</h4>
             <?php
             foreach ($students as $student) {

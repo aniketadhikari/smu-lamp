@@ -25,54 +25,66 @@ mysqli_free_result($result);
     <link rel="stylesheet" href="css/groups.css">
     <title>Student Groups</title>
     <style>
-        body { 
+        body {
             background: url('images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
 
-        table{
+        table {
             background-color: #151c55;
-        }
-
-        td, th {
             color: white;
+            border: #151c55 solid 20px;
         }
+        th, td {
+            text-align: center;
+        }
+        .mail-link {
+            color: white; 
+            text-decoration: underline;
+        }
+        
+
     </style>
 </head>
 
 <body>
     <div class="container" style="padding: 10px;">
         <div class="row center">
-            <a href="logout.php" class="btn indigo">Logout</a>
+            <!-- <a href="logout.php" class="btn indigo">Logout</a>
             <a href="student_welcome.php" class="btn indigo">Dashboard</a>
             <a href="students.php" class="btn indigo">Students</a>
             <a href="import.php" class="btn indigo">Import Students</a>
-            <a href="groups.php" class="btn indigo">Assign Groups</a>
+            <a href="groups.php" class="btn indigo">Assign Groups</a> -->
+            <?php include 'templates/professor_nav.php' ?>
             <h3 class="center">Your Students</h4>
-            <table>
-                <tr>
-                    <th>StudentID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Major</th>
-                    <th>Grade Level</th>
-                </tr>
-                <?php 
-                foreach ($students as $student) {
-                ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($student['StudentID']); ?></td>
-                        <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
-                        <td><?php echo htmlspecialchars($student['EmailAddress']); ?></td>
-                        <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
-                        <td><?php echo htmlspecialchars($student['Major']); ?></td>
-                        <td><?php echo htmlspecialchars($student['GradeLevel']); ?></td>
-                    </tr>
-                <?php }
-                ?>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone #</th>
+                            <th>Major</th>
+                            <th>Grade Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($students as $student) {
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($student['StudentID']); ?></td>
+                                <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
+                                <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
+                                <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
+                                <td><?php echo htmlspecialchars($student['Major']); ?></td>
+                                <td><?php echo htmlspecialchars($student['GradeLevel'][0]) . htmlspecialchars($student['GradeLevel'][1]); ?></td>
+                            </tr>
+                        <?php }
+                        ?>
+                    </tbody>
+                </table>
         </div>
     </div>
 </body>

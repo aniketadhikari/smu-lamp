@@ -41,11 +41,12 @@ if(!isset($_SESSION['professor_name'])){
       <div class="content">
          <h3>hello, <span>professor</span></h3>
          <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
-         <a href="logout.php" class="btn">logout</a>
-         <a href="import.php" class="btn">Import Students</a>
+         <a href="logout.php" class="btn">Logout</a>
+         <a href="professor_welcome.php" class="btn">Dashboard</a>
          <a href="students.php" class="btn">Students</a>
+         <a href="import.php" class="btn">Import Students</a>
          <a href="groups.php" class="btn">Assign Groups</a>
-         
+         <a href="schedule_eval.php" class="btn">Schedule Evaluations</a>
       </div>
    
    </div>

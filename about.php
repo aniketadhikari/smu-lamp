@@ -11,7 +11,6 @@
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
 </head>
 <body>
-<?php require("./templates/header.php"); ?>
 <div style="text-align: center;">
     <h3>Under Maintenance</h3>
     <p>Please check back later!</p>
