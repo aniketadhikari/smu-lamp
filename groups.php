@@ -42,11 +42,12 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/groups.css">
     <title>Student Groups</title>
     <style>
-        body { 
+        body {
             background: url('images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
+
         .submit {
             background: #151c55;
             color: rgb(255, 255, 255);
@@ -70,65 +71,88 @@ if (isset($_POST['submit'])) {
             font-size: 16px;
             color: white;
         }
+
+        table {
+            background-color: #151c55;
+            color: white;
+            border: #151c55 solid 20px;
+        }
+
+        th,
+        td {
+            text-align: center;
+        }
+
+        .mail-link {
+            color: white;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
     <div class="container" style="padding: 10px;">
         <div class="row center">
-        <?php include 'templates/professor_nav.php'?>
-            <h4 class="center">Assign Student Groups</h4>
+            <?php include 'templates/professor_nav.php' ?>
+        </div>
+    </div>
+    <div class="row center">
+        <h4 class="center">Assign Student Groups</h4>
+    </div>
+    <div class="container">
+        <form action="" method="post">
             <?php
-            foreach ($students as $student) {
-            ?>
-                <!-- create a card for each Student -->
-                <div class="col s6 md3">
-                    <div class="card z-depth-2">
-                        <div class="card-panel center">
-                            <div class="card-title">
-                                <h5><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></h5>
-                            </div>
-                            <div class="card-content">
-                                <p>Group: <?php
-                                            if ($student['GroupID'] == 0) {
-                                                echo "Unassigned";
-                                            } else {
-                                                echo htmlspecialchars($student['GroupID']);
-                                            }
-                                            ?></p>
-                                <p>Email: <?php echo htmlspecialchars($student['EmailAddress']); ?></p>
-                                <p>Phone: <?php echo htmlspecialchars($student['PhoneNumber']); ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-        <div class="container">
-            <form action="" method="post">
-                <?php
-                if (isset($error)) {
-                    foreach ($error as $error) {
-                        echo '<span class="error-msg">' . $error . '</span>';
-                    };
+            if (isset($error)) {
+                foreach ($error as $error) {
+                    echo '<span class="error-msg">' . $error . '</span>';
                 };
-                ?>
-                <label for="student_name">Select Student:</label>
-                <select name="student_name" id="student_name" style="display: block;">
-                    <?php foreach ($students as $student) { ?>
-                        <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></option>
-                    <?php } ?>
-                </select>
+            };
+            ?>
+            <label for="student_name">Select Student:</label>
+            <select name="student_name" id="student_name" style="display: block;">
+                <?php foreach ($students as $student) { ?>
+                    <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></option>
+                <?php } ?>
+            </select>
+            <br>
+            <div>
+                <label for="group_id">Enter Group ID:</label>
                 <br>
-                <div>
-                    <label for="group_id">Enter Group ID:</label>
-                    <br>
-                    <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
-                </div>
-                <br>
-                <input class="submit" type="submit" name="submit" value="Assign Group">
-            </form>
+                <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
+            </div>
+            <br>
+            <input class="submit" type="submit" name="submit" value="Assign Group">
+        </form>
+    </div>
+    <div class="container" style="padding: 20px;">
+        <div class="row center">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone #</th>
+                        <th>Group ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($students as $student) {
+                    ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($student['StudentID']); ?></td>
+                            <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
+                            <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
+                            <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
+                            <td><?php echo htmlspecialchars($student['GroupID']); ?></td>
+                        </tr>
+                    <?php }
+                    ?>
+                </tbody>
+            </table>
         </div>
+        <hr>
     </div>
 </body>
 
