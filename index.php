@@ -39,7 +39,10 @@ if(isset($_POST['submit'])){
       }elseif($row['UserType'] == 'student'){
 
          $_SESSION['student_name'] = $row['FirstName'];
-         $_SESSION['student_id'] = $row['StudentID'];
+         $studentid_q = " SELECT * FROM Student WHERE EmailAddress = '$email'";
+         $studentid_q_result = mysqli_query($conn, $studentid_q);
+         $studentid_q_row = mysqli_fetch_array($studentid_q_result);
+         $_SESSION['student_id'] = $studentid_q_row['StudentID'];
          header('location:student_welcome.php');
 
       }
