@@ -22,19 +22,13 @@ if(!isset($_SESSION['professor_name'])){
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <style>
-        img.background {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            filter: blur(5px);
+      body {
+            background: url('images/blurred-smu-admin.jpg');
+            background-size: cover;
+            background-repeat: repeat-y;
         }
-    </style>
+   </style>
 </head>
-
-<img class="background" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg" alt="SMU Admin Building">
 
 <body>
    <div class="container">
@@ -43,8 +37,7 @@ if(!isset($_SESSION['professor_name'])){
          <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
          <a href="logout.php" class="btn">Logout</a>
          <a href="professor_welcome.php" class="btn">Dashboard</a>
-         <a href="students.php" class="btn">Students</a>
-         <a href="import.php" class="btn">Import Students</a>
+         <a href="import.php" class="btn">Import Students & Courses</a>
          <a href="groups.php" class="btn">Assign Groups</a>
          <a href="schedule_eval.php" class="btn">Schedule Evaluations</a>
       </div>
