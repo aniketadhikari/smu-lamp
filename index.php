@@ -93,7 +93,7 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </header>
-<body>
+<body style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);">
 <div class="form-container">
    <form action="" method="post">
       

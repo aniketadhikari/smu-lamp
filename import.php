@@ -75,7 +75,6 @@ if (mysqli_num_rows($result) == 0) {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone #</th>
-                        <th>Group ID</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,7 +86,6 @@ if (mysqli_num_rows($result) == 0) {
                             <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
                             <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
                             <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
-                            <td><?php echo htmlspecialchars($student['GroupID']); ?></td>
                         </tr>
                     <?php }
                     ?>
