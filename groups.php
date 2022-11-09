@@ -39,7 +39,6 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
-    <link rel="stylesheet" href="css/groups.css">
     <title>Student Groups</title>
     <style>
         body {
@@ -91,13 +90,8 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <div class="container" style="padding: 10px;">
-        <div class="row center">
-            <?php include 'templates/professor_nav.php' ?>
-        </div>
-    </div>
-    <div class="row center">
-        <h4 class="center">Assign Student Groups</h4>
+    <?php include 'templates/professor_nav.php' ?>
+    <h4 class="center">Assign Student Groups</h4>
     </div>
     <div class="container">
         <form action="" method="post">

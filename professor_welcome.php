@@ -16,7 +16,7 @@ if(!isset($_SESSION['professor_name'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>admin page</title>
+   <title>Professor Dashboard</title>
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styles.css">
@@ -36,10 +36,10 @@ if(!isset($_SESSION['professor_name'])){
          <h3>hello, <span>professor</span></h3>
          <h1>welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
          <a href="logout.php" class="btn">Logout</a>
-         <a href="professor_welcome.php" class="btn">Dashboard</a>
-         <a href="import.php" class="btn">Import Students & Courses</a>
-         <a href="groups.php" class="btn">Assign Groups</a>
-         <a href="schedule_eval.php" class="btn">Schedule Evaluations</a>
+         <a href="groups.php" class="btn">Groups</a>
+         <a href="schedule_eval.php" class="btn">Evaluations</a>
+         <a href="import_students.php" class="btn">Import Students</a>
+         <a href="import_courses.php" class="btn">Import Courses</a>
       </div>
    
    </div>
