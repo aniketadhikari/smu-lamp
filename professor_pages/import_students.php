@@ -1,5 +1,5 @@
 <?php
-@include 'config.php';
+@include '../config.php';
 
 // StudentID 
 // First Name
@@ -20,7 +20,7 @@
     <title>Import Students</title>
     <style>
         body {
-            background: url('images/blurred-smu-admin.jpg');
+            background: url('../images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
@@ -92,7 +92,7 @@
 </head>
 
 <body>
-    <?php include 'templates/professor_nav.php' ?>
+    <?php include '../templates/professor_nav.php' ?>
     <br>
     <div class="container">
         <?php

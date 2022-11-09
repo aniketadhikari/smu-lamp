@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../config.php';
 session_start();
 $student_id = $_SESSION['student_id'];
 
@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) == 0) {
     <title>Complete Evaluations</title>
     <style>
         body {
-            background: url('images/blurred-smu-admin.jpg');
+            background: url('../images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) == 0) {
 </head>
 
 <body>
-    <?php include 'templates/student_nav.php' ?>
+    <?php include '../templates/student_nav.php' ?>
     <div class="row center">
         <h4 class="center">Complete Evaluations</h4>
     </div>

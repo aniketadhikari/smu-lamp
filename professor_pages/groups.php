@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../config.php';
 
 session_start();
 $professor_id = $_SESSION['professor_id'];
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
     <title>Student Groups</title>
     <style>
         body {
-            background: url('images/blurred-smu-admin.jpg');
+            background: url('../images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <?php include 'templates/professor_nav.php' ?>
+    <?php include '../templates/professor_nav.php' ?>
     <h4 class="center">Assign Student Groups</h4>
     </div>
     <div class="container">

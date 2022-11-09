@@ -1,5 +1,5 @@
 <?php
-@include 'config.php';
+@include '../config.php';
 
 session_start();
 // Gather all respective students of professor logged in 
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
     <title>Schedule Evaluations</title>
     <style>
         body {
-            background: url('images/blurred-smu-admin.jpg');
+            background: url('../images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
         }
@@ -109,7 +109,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <?php include 'templates/professor_nav.php'; ?>
+    <?php include '../templates/professor_nav.php'; ?>
     <h4 class="center">Schedule Peer Evaluations</h4>
     <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
         <form action="" method="post">
