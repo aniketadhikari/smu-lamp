@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../config.php';
 
 session_start();
 
@@ -27,17 +27,24 @@ mysqli_free_result($result);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title>SMU Courses</title>
+    <style>
+        body {
+            background: url('../images/blurred-smu-admin.jpg');
+            background-size: cover;
+            background-repeat: repeat-y;
+        }
+    </style>
+
 </head>
 
-<body style="
-    background-image: url('https://wallpapercrafter.com/desktop/294113-books-education-school-literature-know-reading.jpg');
-    background-size: cover;">
+<body>
+    <?php include '../templates/student_nav.php' ?>
+    <div class="row center">
+        <h3 class="center">Course Names</h3>
+    </div>
     <div class="container">
         <div class="row center">
-            <a href="logout.php" class="btn indigo">Logout</a>
-            <a href="student_welcome.php" class="btn indigo">Dashboard</a>
-            <a href="courses.php" class="btn indigo">Courses</a>
-            <h3 class="center">Course Names</h3>
+
             <?php foreach ($courses as $course) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
@@ -54,7 +61,6 @@ mysqli_free_result($result);
                 </div>
             <?php } ?>
         </div>
-    </div>
 
 </body>
 

@@ -5,12 +5,12 @@
 session_start();
 // if logged in, redirect and go immediately to professor welcome page
 if(isset($_SESSION['professor_name'])){
-   header('location:professor_welcome.php'); 
+   header('location:professor_pages/professor_welcome.php'); 
 }
 
 // if logged in, redirect and go immediately to student welcome page
 if(isset($_SESSION['student_name'])){
-   header('location:student_welcome.php'); 
+   header('location:student_pages/student_welcome.php'); 
 }
 
 if(isset($_POST['submit'])){
@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
          $professorid_q_row = mysqli_fetch_array($professorid_q_result);
          // store professor id 
          $_SESSION['professor_id'] = $professorid_q_row['ProfessorID'];
-         header('location:professor_welcome.php');
+         header('location:professor_pages/professor_welcome.php');
 
       }elseif($row['UserType'] == 'student'){
 
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
          $studentid_q_result = mysqli_query($conn, $studentid_q);
          $studentid_q_row = mysqli_fetch_array($studentid_q_result);
          $_SESSION['student_id'] = $studentid_q_row['StudentID'];
-         header('location:student_welcome.php');
+         header('location:student_pages/student_welcome.php');
 
       }
      
@@ -65,7 +65,12 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+   <style>
+      body {
+         background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);
+         background-size: cover;
+      }
+   </style>
 </head>
 <header>
     <div class="t-header">
@@ -93,7 +98,7 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </header>
-<body style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);">
+<body>
 <div class="form-container">
    <form action="" method="post">
       
