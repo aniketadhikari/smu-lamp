@@ -28,8 +28,7 @@ if (isset($_POST['submit'])) {
     $evaluator_id = intval(mysqli_real_escape_string($conn, $_POST['evaluator_name']));
     if ($student_id == $evaluator_id) {
         $error[] = 'Student can not evaluate themselves!';
-    }
-    else {
+    } else {
         $insert = "INSERT INTO PeerAssessment(StartDate, DueDate, StudentID, GroupID, EvaluatorStudentID, ProfessorID) VALUES('$start_date', '$due_date', '$student_id', '$group_id', '$evaluator_id', '$professor_id')";
         mysqli_query($conn, $insert);
         $success[] = 'Assessment Successfully Assigned';
@@ -110,14 +109,8 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <div class="container" style="padding: 10px;">
-        <div class="row center">
-            <?php include 'templates/professor_nav.php';?>
-        </div>
-    </div>
-    <div class="row center">
-        <h4 class="center">Schedule Peer Evaluations</h4>
-    </div>
+    <?php include 'templates/professor_nav.php'; ?>
+    <h4 class="center">Schedule Peer Evaluations</h4>
     <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
         <form action="" method="post">
             <label for="student_name">Select student to be <strong>evaluated</strong>, meaning they will be evaluated by another student in the class:</label>

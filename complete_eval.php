@@ -48,11 +48,7 @@ if (mysqli_num_rows($result) == 0) {
 </head>
 
 <body>
-    <div class="container" style="padding: 10px;">
-        <div class="row center">
-            <?php include 'templates/student_nav.php' ?>
-        </div>
-    </div>
+    <?php include 'templates/student_nav.php' ?>
     <div class="row center">
         <h4 class="center">Complete Evaluations</h4>
     </div>
@@ -79,7 +75,7 @@ if (mysqli_num_rows($result) == 0) {
                             <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
                             <td><?php echo htmlspecialchars($student['GradeLevel']); ?></td>
                             <td><?php echo htmlspecialchars($student['Major']); ?></td>
-                            <td><?php echo date('F j, Y', strtotime($student['DueDate']))?></td>
+                            <td><?php echo date('F j, Y', strtotime($student['DueDate'])) ?></td>
                         </tr>
                     <?php }
                     ?>

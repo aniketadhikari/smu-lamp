@@ -30,6 +30,7 @@ if (mysqli_num_rows($result) == 0) {
             background-size: cover;
             background-repeat: repeat-y;
         }
+
         table {
             background-color: #151c55;
             color: white;
@@ -49,11 +50,7 @@ if (mysqli_num_rows($result) == 0) {
 </head>
 
 <body>
-    <div class="container" style="padding: 10px;">
-        <div class="row center">
-            <?php include 'templates/professor_nav.php' ?>
-        </div>
-    </div>
+    <?php include 'templates/professor_nav.php' ?>
     <div class="container">
         <?php
         if (isset($error)) {
@@ -69,28 +66,28 @@ if (mysqli_num_rows($result) == 0) {
             <a href="import_students.php" class="btn">Import Students</a>
         </div>
         <table>
-                <thead>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone #</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($students as $student) {
+                ?>
                     <tr>
-                        <th>Student ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone #</th>
+                        <td><?php echo htmlspecialchars($student['StudentID']); ?></td>
+                        <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
+                        <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
+                        <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($students as $student) {
-                    ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($student['StudentID']); ?></td>
-                            <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
-                            <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
-                            <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
-                        </tr>
-                    <?php }
-                    ?>
-                </tbody>
-            </table>
+                <?php }
+                ?>
+            </tbody>
+        </table>
     </div>
     <div class="container">
         <div class="row center">
