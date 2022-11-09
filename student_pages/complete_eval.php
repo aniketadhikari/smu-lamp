@@ -2,6 +2,11 @@
 
 @include '../config.php';
 session_start();
+
+if(!isset($_SESSION['professor_name'])){
+    header('location:../index.php');
+ }
+ 
 $student_id = $_SESSION['student_id'];
 
 $select = "SELECT * FROM PeerAssessment INNER JOIN Student ON PeerAssessment.StudentID=Student.StudentID WHERE EvaluatorStudentID='$student_id'";

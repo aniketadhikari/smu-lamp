@@ -3,6 +3,11 @@
 @include '../config.php';
 
 session_start();
+
+if(!isset($_SESSION['professor_name'])){
+    header('location:../index.php');
+ }
+ 
 $professor_id = $_SESSION['professor_id'];
 $select = "SELECT Student.* FROM ((`Student` INNER JOIN `Groups` ON `Student`.`GroupID`=`Groups`.`GroupID`) INNER JOIN `Course` ON `Groups`.`CourseID`=`Course`.`CourseID`) WHERE ProfessorID = $professor_id";
 $result = mysqli_query($conn, $select);
