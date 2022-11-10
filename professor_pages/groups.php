@@ -52,16 +52,6 @@ if (isset($_POST['submit'])) {
             background-repeat: repeat-y;
         }
 
-        .submit {
-            background: #151c55;
-            color: rgb(255, 255, 255);
-            text-transform: capitalize;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 15px;
-        }
-
         .card-panel {
             background-color: #151c55;
             color: white;
@@ -120,7 +110,7 @@ if (isset($_POST['submit'])) {
                 <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
             </div>
             <br>
-            <input class="submit" type="submit" name="submit" value="Assign Group">
+            <input class="btn indigo" type="submit" name="submit" value="Assign Group">
         </form>
     </div>
     <div class="container" style="padding: 20px;">

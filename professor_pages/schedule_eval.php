@@ -132,8 +132,8 @@ if (isset($_POST['submit'])) {
             <br>
             <label for="due_date"><strong>Select</strong> due date for peer evaluations</label>
             <input type="date" id="due_date" name="due_date" style="background-color: white; padding: 5px; border-radius: 2px;" min="<?php echo htmlspecialchars(date("Y-m-d")) ?>" value="<?php echo htmlspecialchars(date("Y-m-d")) ?>">
-            <hr>
-            <input class="submit" type="submit" name="submit" value="Schedule">
+            <br><hr>
+            <input class="btn indigo" type="submit" name="submit" value="Schedule">
         </form>
     </div>
     <br>

@@ -41,16 +41,6 @@
             text-decoration: underline;
         }
 
-        .submit {
-            background: #5f4d1e;
-            color: rgb(255, 255, 255);
-            text-transform: capitalize;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 15px;
-        }
-
         label {
             font-size: 16px;
             color: white;
@@ -110,7 +100,7 @@
                 <label for="course_name">Course Name: </label><br>
                 <input type="text" id="course_name" name="course_name" placeholder="Computer Science"></input><br>
                 <!-- Submit Button -->
-                <input class="submit" type="submit" name="submit" value="Schedule">
+                <input class="btn indigo" type="submit" name="submit" value="Schedule">
             </form>
         </div>
     </div>
