@@ -3,6 +3,11 @@
 @include '../config.php';
 
 session_start();
+
+if(!isset($_SESSION['professor_name'])){
+    header('location:../index.php');
+ }
+ 
 $professor_id = $_SESSION['professor_id'];
 $select = "SELECT Student.* FROM ((`Student` INNER JOIN `Groups` ON `Student`.`GroupID`=`Groups`.`GroupID`) INNER JOIN `Course` ON `Groups`.`CourseID`=`Course`.`CourseID`) WHERE ProfessorID = $professor_id";
 $result = mysqli_query($conn, $select);
@@ -45,16 +50,6 @@ if (isset($_POST['submit'])) {
             background: url('../images/blurred-smu-admin.jpg');
             background-size: cover;
             background-repeat: repeat-y;
-        }
-
-        .submit {
-            background: #151c55;
-            color: rgb(255, 255, 255);
-            text-transform: capitalize;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 15px;
         }
 
         .card-panel {
@@ -115,7 +110,7 @@ if (isset($_POST['submit'])) {
                 <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
             </div>
             <br>
-            <input class="submit" type="submit" name="submit" value="Assign Group">
+            <input class="btn indigo" type="submit" name="submit" value="Assign Group">
         </form>
     </div>
     <div class="container" style="padding: 20px;">

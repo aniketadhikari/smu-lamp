@@ -1,12 +1,31 @@
 <?php
 @include '../config.php';
 
-// StudentID 
-// First Name
-// Last Name
-// Email Address 
+if(isset($_POST['submit'])){
+    // Course Name
 
+    // Program
 
+    // Day
+
+    // Section 
+
+    // ProfessorID
+
+    // Semester
+
+    // Year
+    // Check if student is not a duplicate
+    $find_student = "SELECT * FROM Student WHERE StudentID = $student_id;";
+    $find_student_result = mysqli_query($conn, $find_student);
+    if (mysqli_num_rows($find_student_result) > 0) {
+        $error[] = 'Student already in database!';
+    }
+    else { 
+        $insert = "INSERT INTO Student(StudentID, FirstName, LastName, EmailAddress, PhoneNumber, Semester, GradeLevel, Major, GroupID) VALUES('$student_id', '$first_name', '$last_name', '$email_address', '$phone', '$semester', '$grade_level', '$major', $group_id)";
+        mysqli_query($conn, $insert);
+    }
+}
 ?>
 
 <html>
@@ -39,16 +58,6 @@
         .mail-link {
             color: white;
             text-decoration: underline;
-        }
-
-        .submit {
-            background: #5f4d1e;
-            color: rgb(255, 255, 255);
-            text-transform: capitalize;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 15px;
         }
 
         label {
@@ -108,9 +117,25 @@
             <form action="" method="post">
                 <!-- Course Name -->
                 <label for="course_name">Course Name: </label><br>
-                <input type="text" id="course_name" name="course_name" placeholder="Computer Science"></input><br>
+                <input type="text" id="course_name" name="course_name" placeholder="Ex. Computer Science"></input><br>
+                <!-- Program -->
+                <label for="program">Program: </label><br>
+                <input type="text" id="program" name="program" placeholder="Ex. Business Management"></input><br>
+                <!-- Day -->
+                <label for="day">Day: </label><br>
+                <input type="text" id="day" name="day" placeholder="Ex. Monday"></input><br>
+                <!-- Section -->
+                <label for="section">Section: </label><br>
+                <input type="text" id="section" name="section" placeholder="Ex. 10:30"></input><br>
+                <!-- ProfessorID -->
+                <label for="professor_id">Professor ID: </label><br>
+                <input type="text" id="professor_id" name="professor_id" placeholder="Ex. 1"></input><br>
+                <!-- Semester -->
+                <!-- Year -->
+                <label for="year">Year: </label><br>
+                <input type="text" id="year" name="year" placeholder="Ex. 2022"></input><br>
                 <!-- Submit Button -->
-                <input class="submit" type="submit" name="submit" value="Schedule">
+                <input class="btn indigo" type="submit" name="submit" value="Schedule">
             </form>
         </div>
     </div>
