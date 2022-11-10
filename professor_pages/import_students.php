@@ -1,6 +1,11 @@
 <?php
 @include '../config.php';
 
+session_start();
+if(!isset($_SESSION['professor_name'])){
+    header('location:../index.php');
+ }
+
 if(isset($_POST['submit'])){
     $student_id = intval(mysqli_real_escape_string($conn, $_POST['student_id']));
     $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
