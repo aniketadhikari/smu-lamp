@@ -23,12 +23,6 @@ if(isset($_POST['submit'])){
         mysqli_query($conn, $insert);
     }
 }
-// StudentID 
-// First Name
-// Last Name
-// Email Address 
-
-
 ?>
 
 <html>
@@ -120,19 +114,19 @@ if(isset($_POST['submit'])){
             <form action="" method="post">
                 <!-- Student ID -->
                 <label for="student_id">Student ID: </label><br>
-                <input type="number" id="student_id" name="student_id" minlength="9" placeholder="123456789" required></input><br>
+                <input type="number" id="student_id" name="student_id" minlength="9" placeholder="Ex. 123456789" required></input><br>
                 <!-- First Name -->
                 <label for="first_name">First Name: </label><br>
-                <input type="text" id="first_name" name="first_name" placeholder="John" required></input><br>
+                <input type="text" id="first_name" name="first_name" placeholder="Ex. John" required></input><br>
                 <!-- Last Name -->
                 <label for="last_name">Last Name: </label><br>
-                <input type="text" id="last_name" name="last_name" placeholder="Appleseed" required></input><br>
+                <input type="text" id="last_name" name="last_name" placeholder="Ex. Appleseed" required></input><br>
                 <!-- Email -->
                 <label for="email_address">Email Address: </label><br>
-                <input type="email" id="email_address" name="email_address" placeholder="johnappleseed@business.smu.edu.sg" required></input><br>
+                <input type="email" id="email_address" name="email_address" placeholder="Ex. johnappleseed@business.smu.edu.sg" required></input><br>
                 <!-- Phone # -->
                 <label for="phone_number">Phone #: </label><br>
-                <input type="tel" id="phone_number" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required></input><br>
+                <input type="tel" id="phone_number" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Ex. 123-456-7890" required></input><br>
                 <!-- Semester -->
                 <label for="semester">Semester: </label><br><br>
                 <select name="semester" id="semester" style="display: block;" required>
@@ -149,7 +143,7 @@ if(isset($_POST['submit'])){
                 </select><br>
                 <!-- Major -->
                 <label for="major">Major: </label><br>
-                <input type="text" id="major" name="major" placeholder="Computer Science" required></input><br>
+                <input type="text" id="major" name="major" placeholder="Ex. Computer Science" required></input><br>
                 <!-- Group ID -->
                 <label for="group_id">Group ID: </label><br><br>
                 <select name="group_id" id="group_id" style="display: block;" required>
