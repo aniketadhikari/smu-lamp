@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <style>
       .form-container {
-         background-image: url(https://www.extron.com/img/mktg/smu-cg.jpg);
+         background-image: url('images/blurred_smu_morning.jpg');
          background-repeat: no-repeat;
          background-size: cover;
       }
