@@ -66,11 +66,16 @@ if(isset($_POST['submit'])){
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <style>
-      body {
-         background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);
+      .form-container {
+         background-image: url(https://www.extron.com/img/mktg/smu-cg.jpg);
+         background-repeat: no-repeat;
          background-size: cover;
       }
+      body {
+         background-color: #151c55;
+      }
    </style>
+
 </head>
 <header>
     <div class="t-header">
@@ -114,9 +119,8 @@ if(isset($_POST['submit'])){
          <input type="password" name="password" required placeholder="enter your password">
          <input type="submit" name="submit" value="login now" class="form-btn">
          <p>Don't have an account? <a href="register.php">register now</a></p>
-      
    </form>
 </div>
-
+<?php include 'templates/footer.php' ?>
 </body>
 </html>
