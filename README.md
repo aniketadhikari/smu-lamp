@@ -38,7 +38,7 @@ Aniket Adhikari (Amazon Lightsail, LAMP Stack)
 
 # About SMU Case
 Build a web application which will allow students working in team project to do intra-team peer evaluation. This evaluation will be based on a set of rubric. Sample rubrics can be found at: Canvas > Files > TEAM PROJECT > CLIENT ORGANIZATIONS > 1. Singapore Management University >   These rubrics can be then mapped to the SMU Graduate Learning Outcomes. For each student these peer evaluation will be consolidated across many courses and the student can then see a visual dashboard of the consolidated achievement in terms of the SMU Graduate Learning Outcomes (achieved, working towards, needs improvement, etc.).  This project will require a web front end, database and visual APIs for the dashboard.  Your application should:
-* allow the professor to import students and courses
+* allow the professor to import students and courses (DONE)
 * allow the professor to create student groups (DONE)
 * allow the professor to schedule peer evaluations (DONE)
 * allow the student to complete peer evaluations
