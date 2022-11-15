@@ -68,7 +68,6 @@ if(isset($_POST['submit'])){
    <style>
       .form-container {
          background-image: url('images/blurred_smu_morning.jpg');
-         background-repeat: no-repeat;
          background-size: cover;
       }
       body {
@@ -121,6 +120,5 @@ if(isset($_POST['submit'])){
          <p>Don't have an account? <a href="register.php">register now</a></p>
    </form>
 </div>
-<?php include 'templates/footer.php' ?>
 </body>
 </html>

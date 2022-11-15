@@ -15,6 +15,23 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (mysqli_num_rows($result) == 0) {
     $error[] = 'No evals assigned to you!';
 }
+$total_score = 0;
+if(isset($_POST['submit'])) {
+    $dmk = intval(mysqli_real_escape_string($conn, $_POST['dmk']));
+    $ic = intval(mysqli_real_escape_string($conn, $_POST['ic']));
+    $ip = intval(mysqli_real_escape_string($conn, $_POST['ip']));
+    $gc = intval(mysqli_real_escape_string($conn, $_POST['gc']));
+    $pm = intval(mysqli_real_escape_string($conn, $_POST['pm']));
+    $student_id = intval(mysqli_real_escape_string($conn, $_POST['evaluatee']));
+    $submitted_date = date("Y-m-d");
+
+    // calculate the total score
+    $total_score = $dmk + $ic + $ip + $gc + $pm;
+    $update = "UPDATE PeerAssessment SET SubmittedDate='$submitted_date', DMKScore=$dmk, ICScore=$ic, IPScore=$ip, GCScore=$gc, PMScore=$pm WHERE StudentID=$student_id";
+    mysqli_query($conn, $update);
+    header('location:list_eval.php');
+}
+
 ?>
 
 <html>
@@ -26,7 +43,7 @@ if (mysqli_num_rows($result) == 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <link rel="stylesheet" href="css/groups.css">
-    <title>Complete Evaluations</title>
+    <title><?php echo $_SESSION['student_name'] ?>'s Evaluations</title>
     <style>
         body {
             background: url('../images/blurred-smu-admin.jpg');
@@ -48,6 +65,16 @@ if (mysqli_num_rows($result) == 0) {
         .mail-link {
             color: white;
             text-decoration: underline;
+        }
+        select {
+            display: inline;
+        }
+        label {
+            font-size: 16px;
+            color: white;
+        }
+        input, textarea {
+            color: white;
         }
     </style>
 </head>
@@ -89,6 +116,34 @@ if (mysqli_num_rows($result) == 0) {
         </div>
         <hr>
     </div>
-</body>
+    <div class="container" style="background-color: #151c55; padding: 20px;">
+        <form action="" method="post">
+            <!-- Pick Student -->
+            <label for="evaluatee">Student to Evaluate: </label>
+            <select name="evaluatee" id="evaluatee">
+                <?php foreach ($students as $student) { ?>
+                    <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']) . ', ' . htmlspecialchars($student['EmailAddress']); ?></option>
+                <?php } ?>
+            </select><br><br>
+            <!-- DMK Score -->
+            <label for="dmk">Enter DMK Score</label>
+            <input type="number" id="dmk" name="dmk" min="1" max="5" required>
+            <!-- ICScore -->
+            <label for="ic">Enter IC Score</label>
+            <input type="number" id="ic" name="ic" min="1" max="5" required>
+            <!-- IPScore -->
+            <label for="ip">Enter IP Score</label>
+            <input type="number" id="ip" name="ip" min="1" max="5" required>
+            <!-- GCScore -->
+            <label for="gc">Enter GC Score</label>
+            <input type="number" id="gc" name="gc" min="1" max="5" required>
+            <!-- PMScore -->
+            <label for="pm">Enter PM Score</label>
+            <input type="number" id="pm" name="pm" min="1" max="5" required>
 
+            <input class="btn indigo" type="submit" name="submit" value="submit">
+            <?php echo date("Y-m-d"); ?>
+        </form>
+    </div>
+</body>
 </html>

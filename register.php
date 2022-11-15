@@ -55,9 +55,12 @@ if(isset($_POST['submit'])){
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <style>
-      body {
-         background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/SMU_Admin_Building.jpg);
+      .form-container {
+         background-image: url("images/blurred-smu-admin.jpg");
          background-size: cover;
+      }
+      body {
+         background-color: #151c55;
       }
    </style>
 </head>
@@ -114,6 +117,5 @@ if(isset($_POST['submit'])){
    </form>
 
 </div>
-
 </body>
 </html>
