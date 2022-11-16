@@ -41,7 +41,7 @@ Build a web application which will allow students working in team project to do 
 * allow the professor to import students and courses (DONE)
 * allow the professor to create student groups (DONE)
 * allow the professor to schedule peer evaluations (DONE)
-* allow the student to complete peer evaluations
+* allow the student to complete peer evaluations (DONE)
 * provide operational reporting, for all of the above
 
 Note that your project should be customized to Singapore Management University’s needs: consult the smu.edu.sg website for information on SMU branding, SMU courses, SMU semesters, etc.  Projects that include only VT branding, VT courses, VT semesters, etc. will lose points.
