@@ -196,7 +196,7 @@ if (isset($_POST['submit'])) {
                                     $select_evaluator = "SELECT FirstName, LastName FROM Student WHERE StudentID='$evaluator_id'";
                                     $result_select_evaluator = mysqli_query($conn, $select_evaluator);
                                     $evaluator = mysqli_fetch_row($result_select_evaluator);
-                                    echo 'Evaluated By: ' . $evaluator[0] . ' ' . $evaluator[1];
+                                    echo 'Evaluated By: ' . $evaluator[0] . ' ' . $evaluator[1] . ' on ' . date_format(date_create($peer['SubmittedDate']),"M d, Y");
                                 ?>
                             </div>
                         </div>
