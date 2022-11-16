@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php include '../templates/professor_nav.php'; ?>
-    <h4 class="center">Schedule Peer Evaluations</h4>
+    <h4 class="center">Schedule and View Peer Evaluations</h4>
     <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
         <form action="" method="post">
             <label for="student_name">Select student to be <strong>evaluated</strong>, meaning they will be evaluated by another student in the class:</label>
@@ -160,6 +160,11 @@ if (isset($_POST['submit'])) {
         }
     }
     ?>
+    <hr>
+    <!-- View Peer Eval Scores  -->
+    <div>
+
+    </div>
 </body>
 
 </html>

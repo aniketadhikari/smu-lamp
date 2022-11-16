@@ -142,7 +142,6 @@ if(isset($_POST['submit'])) {
             <input type="number" id="pm" name="pm" min="1" max="5" required>
 
             <input class="btn indigo" type="submit" name="submit" value="submit">
-            <?php echo date("Y-m-d"); ?>
         </form>
     </div>
 </body>
