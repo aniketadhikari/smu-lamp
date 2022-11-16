@@ -2,9 +2,9 @@
 @include '../config.php';
 
 session_start();
-if(!isset($_SESSION['professor_name'])){
+if (!isset($_SESSION['professor_name'])) {
     header('location:../index.php');
- }
+}
 // Gather all respective students of professor logged in 
 $professor_id = $_SESSION['professor_id'];
 $select = "SELECT Student.* FROM ((`Student` INNER JOIN `Groups` ON `Student`.`GroupID`=`Groups`.`GroupID`) INNER JOIN `Course` ON `Groups`.`CourseID`=`Course`.`CourseID`) WHERE ProfessorID = $professor_id ORDER BY FirstName";
@@ -37,7 +37,6 @@ if (isset($_POST['submit'])) {
         $success[] = 'Assessment Successfully Assigned';
         header('location:schedule_eval.php');
     }
-    
 }
 ?>
 
@@ -49,7 +48,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
-    <title>Schedule Evaluations</title>
+    <title>Evaluations</title>
     <style>
         body {
             background: url('../images/blurred-smu-admin.jpg');
@@ -109,12 +108,20 @@ if (isset($_POST['submit'])) {
             padding: 10px;
             border-radius: 10px;
         }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <?php include '../templates/professor_nav.php'; ?>
-    <h4 class="center">Schedule and View Peer Evaluations</h4>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Evaluations</h4>
+    </div>
     <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
         <form action="" method="post">
             <label for="student_name">Select student to be <strong>evaluated</strong>, meaning they will be evaluated by another student in the class:</label>
@@ -133,7 +140,8 @@ if (isset($_POST['submit'])) {
             <br>
             <label for="due_date"><strong>Select</strong> due date for peer evaluations</label>
             <input type="date" id="due_date" name="due_date" style="background-color: white; padding: 5px; border-radius: 2px;" min="<?php echo htmlspecialchars(date("Y-m-d")) ?>" value="<?php echo htmlspecialchars(date("Y-m-d")) ?>">
-            <br><hr>
+            <br>
+            <hr>
             <input class="btn indigo" type="submit" name="submit" value="Schedule">
         </form>
     </div>
@@ -160,10 +168,42 @@ if (isset($_POST['submit'])) {
         }
     }
     ?>
-    <hr>
     <!-- View Peer Eval Scores  -->
-    <div>
-
+    <div class="container">
+        <?php
+        $professor_id = $_SESSION['professor_id'];
+        $select_peers = "SELECT * FROM PeerAssessment INNER JOIN Student ON PeerAssessment.StudentID=Student.StudentID WHERE ProfessorID=$professor_id";
+        $result_select_peers = mysqli_query($conn, $select_peers);
+        $peers = mysqli_fetch_all($result_select_peers, MYSQLI_ASSOC);
+        foreach ($peers as $peer) {
+        ?>
+            <div class="row center">
+                <div class="col s6 md3">
+                    <div class="card z-depth-2">
+                        <div class="card-panel center">
+                            <div class="card-title">
+                                <h5><?php echo htmlspecialchars($peer['FirstName']) . ' ' . htmlspecialchars($peer['LastName']); ?></h5>
+                            </div>
+                            <div class="card-content">
+                                <p>DMK Score: <?php echo intval(htmlspecialchars($peer['DMKScore'])) ?></p>
+                                <p>IC Score: <?php echo intval(htmlspecialchars($peer['ICScore'])) ?></p>
+                                <p>IP Score: <?php echo intval(htmlspecialchars($peer['IPScore'])) ?></p>
+                                <p>GC Score: <?php echo intval(htmlspecialchars($peer['GCScore'])) ?></p>
+                                <p>PM Score: <?php echo intval(htmlspecialchars($peer['PMScore'])) ?></p>
+                                <h4>Total Score: <?php echo intval(htmlspecialchars($peer['TotalScore'])) ?></h4>
+                                <?php
+                                    $evaluator_id =  htmlspecialchars($peer['EvaluatorStudentID']);
+                                    $select_evaluator = "SELECT FirstName, LastName FROM Student WHERE StudentID='$evaluator_id'";
+                                    $result_select_evaluator = mysqli_query($conn, $select_evaluator);
+                                    $evaluator = mysqli_fetch_row($result_select_evaluator);
+                                    echo 'Evaluated By: ' . $evaluator[0] . ' ' . $evaluator[1];
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </body>
 

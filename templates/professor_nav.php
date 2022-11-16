@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<div class="row center">
+<div class="row" style="margin-bottom: 0px; position: sticky; position: -webkit-sticky; top: 0;">
     <ul class="tabs">
         <li class="tab col m2 indigo darken-4"><a href="../logout.php">Logout</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/professor_welcome.php">Dashboard</a></li>

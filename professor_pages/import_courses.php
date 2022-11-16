@@ -97,12 +97,20 @@ if (isset($_POST['submit'])) {
         textarea {
             color: white;
         }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <?php include '../templates/professor_nav.php' ?>
-    <br>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Import Courtses</h4>
+    </div>
     <div class="container">
         <?php
         if (isset($error)) {
@@ -111,7 +119,7 @@ if (isset($_POST['submit'])) {
             };
         };
         ?>
-        <h4 class="center">Import Courses</h4>
+
         <br>
         <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
             <form action="" method="post">

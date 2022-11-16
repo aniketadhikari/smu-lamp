@@ -3,10 +3,10 @@
 @include '../config.php';
 session_start();
 
-if(!isset($_SESSION['student_name'])){
+if (!isset($_SESSION['student_name'])) {
     header('location:../index.php');
- }
- 
+}
+
 $student_id = $_SESSION['student_id'];
 
 $select = "SELECT * FROM PeerAssessment INNER JOIN Student ON PeerAssessment.StudentID=Student.StudentID WHERE EvaluatorStudentID='$student_id'";
@@ -16,7 +16,7 @@ if (mysqli_num_rows($result) == 0) {
     $error[] = 'No evals assigned to you!';
 }
 $total_score = 0;
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $dmk = intval(mysqli_real_escape_string($conn, $_POST['dmk']));
     $ic = intval(mysqli_real_escape_string($conn, $_POST['ic']));
     $ip = intval(mysqli_real_escape_string($conn, $_POST['ip']));
@@ -26,8 +26,8 @@ if(isset($_POST['submit'])) {
     $submitted_date = date("Y-m-d");
 
     // calculate the total score
-    $total_score = $dmk + $ic + $ip + $gc + $pm;
-    $update = "UPDATE PeerAssessment SET SubmittedDate='$submitted_date', DMKScore=$dmk, ICScore=$ic, IPScore=$ip, GCScore=$gc, PMScore=$pm WHERE StudentID=$student_id";
+    $total_score = ($dmk + $ic + $ip + $gc + $pm) / 5;
+    $update = "UPDATE PeerAssessment SET SubmittedDate='$submitted_date', DMKScore=$dmk, ICScore=$ic, IPScore=$ip, GCScore=$gc, PMScore=$pm, TotalScore=$total_score WHERE StudentID=$student_id";
     mysqli_query($conn, $update);
     header('location:list_eval.php');
 }
@@ -66,14 +66,24 @@ if(isset($_POST['submit'])) {
             color: white;
             text-decoration: underline;
         }
+
         select {
             display: inline;
         }
+
         label {
             font-size: 16px;
             color: white;
         }
-        input, textarea {
+
+        input,
+        textarea {
+            color: white;
+        }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
             color: white;
         }
     </style>
@@ -81,8 +91,8 @@ if(isset($_POST['submit'])) {
 
 <body>
     <?php include '../templates/student_nav.php' ?>
-    <div class="row center">
-        <h4 class="center">Complete Evaluations</h4>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Evaluations</h4>
     </div>
     <div class="container" style="padding: 20px;">
         <div class="row center">
@@ -145,4 +155,5 @@ if(isset($_POST['submit'])) {
         </form>
     </div>
 </body>
+
 </html>

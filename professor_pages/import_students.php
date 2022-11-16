@@ -2,11 +2,11 @@
 @include '../config.php';
 
 session_start();
-if(!isset($_SESSION['professor_name'])){
+if (!isset($_SESSION['professor_name'])) {
     header('location:../index.php');
- }
+}
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $student_id = intval(mysqli_real_escape_string($conn, $_POST['student_id']));
     $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
     $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);;
@@ -22,8 +22,7 @@ if(isset($_POST['submit'])){
     $find_student_result = mysqli_query($conn, $find_student);
     if (mysqli_num_rows($find_student_result) > 0) {
         $error[] = 'Student already in database!';
-    }
-    else { 
+    } else {
         $insert = "INSERT INTO Student(StudentID, FirstName, LastName, EmailAddress, PhoneNumber, Semester, GradeLevel, Major, GroupID) VALUES('$student_id', '$first_name', '$last_name', '$email_address', '$phone', '$semester', '$grade_level', '$major', $group_id)";
         mysqli_query($conn, $insert);
     }
@@ -96,7 +95,15 @@ if(isset($_POST['submit'])){
             padding: 10px;
             border-radius: 10px;
         }
-        input, textarea {
+
+        input,
+        textarea {
+            color: white;
+        }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
             color: white;
         }
     </style>
@@ -104,7 +111,9 @@ if(isset($_POST['submit'])){
 
 <body>
     <?php include '../templates/professor_nav.php' ?>
-    <br>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Import Students</h4>
+    </div>
     <div class="container">
         <?php
         if (isset($error)) {
@@ -113,7 +122,7 @@ if(isset($_POST['submit'])){
             };
         };
         ?>
-        <h4 class="center">Import Students</h4>
+
         <br>
         <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
             <form action="" method="post">

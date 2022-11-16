@@ -3,12 +3,12 @@
 <head>
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<div class="row center">
+<div class="row" style="margin-bottom: 0px;  position: sticky; position: -webkit-sticky; top: 0;">
     <ul class="tabs">
-        <li class="tab col m3 indigo darken-4"><a href="../logout.php" >Logout</a></li>
-        <li class="tab col m3 indigo darken-4"><a href="student_welcome.php" >Dashboard</a></li>
-        <li class="tab col m3 indigo darken-4"><a href="courses.php" >Courses</a></li>
-        <li class="tab col m3 indigo darken-4"><a href="list_eval.php" >View Evaluations</a></li>
+        <li class="tab col m3 indigo darken-4"><a href="../logout.php">Logout</a></li>
+        <li class="tab col m3 indigo darken-4"><a href="student_welcome.php">Dashboard</a></li>
+        <li class="tab col m3 indigo darken-4"><a href="courses.php">Courses</a></li>
+        <li class="tab col m3 indigo darken-4"><a href="list_eval.php">View Evaluations</a></li>
     </ul>
 </div>
 

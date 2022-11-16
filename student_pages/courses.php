@@ -33,14 +33,21 @@ mysqli_free_result($result);
             background-size: cover;
             background-repeat: repeat-y;
         }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
+            color: white;
+        }
     </style>
 
 </head>
 
 <body>
+    
     <?php include '../templates/student_nav.php' ?>
-    <div class="row center">
-        <h3 class="center">Course Names</h3>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Courses</h4>
     </div>
     <div class="container">
         <div class="row center">

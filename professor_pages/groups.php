@@ -4,10 +4,10 @@
 
 session_start();
 
-if(!isset($_SESSION['professor_name'])){
+if (!isset($_SESSION['professor_name'])) {
     header('location:../index.php');
- }
- 
+}
+
 $professor_id = $_SESSION['professor_id'];
 $select = "SELECT Student.* FROM ((`Student` INNER JOIN `Groups` ON `Student`.`GroupID`=`Groups`.`GroupID`) INNER JOIN `Course` ON `Groups`.`CourseID`=`Course`.`CourseID`) WHERE ProfessorID = $professor_id";
 $result = mysqli_query($conn, $select);
@@ -81,12 +81,19 @@ if (isset($_POST['submit'])) {
             color: white;
             text-decoration: underline;
         }
+
+        .title {
+            background-image: linear-gradient(black, #151c55);
+            padding: 25px;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <?php include '../templates/professor_nav.php' ?>
-    <h4 class="center">Assign Student Groups</h4>
+    <div class="title" style="margin: 0px 0px 20px 0px">
+        <h4 class="center" style="margin: 0px">Assign Student Groups</h4>
     </div>
     <div class="container">
         <form action="" method="post">
@@ -122,7 +129,6 @@ if (isset($_POST['submit'])) {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone #</th>
-                        <th>Group ID</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,7 +140,6 @@ if (isset($_POST['submit'])) {
                             <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
                             <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
                             <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
-                            <td><?php echo htmlspecialchars($student['GroupID']); ?></td>
                         </tr>
                     <?php }
                     ?>
