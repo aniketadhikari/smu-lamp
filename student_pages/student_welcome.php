@@ -4,7 +4,7 @@
 
 session_start();
 
-if(!isset($_SESSION['student_name'])){
+if (!isset($_SESSION['student_name'])) {
    header('location:../index.php'); // if not logged in, redirect and go back to home page
 }
 
@@ -12,6 +12,7 @@ if(!isset($_SESSION['student_name'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,16 +24,16 @@ if(!isset($_SESSION['student_name'])){
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <style>
       body {
-            background: url('../images/blurred-smu-admin.jpg');
-            background-size: cover;
-            background-repeat: repeat-y;
-        }
+         background: url('../images/blurred-smu-student.jpg');
+         background-size: cover;
+         background-repeat: repeat-y;
+      }
    </style>
 </head>
-<body>
-   
-<div class="container"">
-      <div class="content" style="background-color:rgba(25, 25, 25, 0.25);padding:10px;">
+
+<body class="student-body">
+   <div class="container">
+      <div class=" content">
       <h3>Hi, <span>student</span></h3>
       <h1>Welcome <span><?php echo $_SESSION['student_name'] ?></span></h1>
       <a href="../logout.php" class="btn">Logout</a>
@@ -40,7 +41,8 @@ if(!isset($_SESSION['student_name'])){
       <a href="list_eval.php" class="btn">View and Complete Evaluations</a>
    </div>
 
-</div>
+   </div>
 
 </body>
+
 </html>

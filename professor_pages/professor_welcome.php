@@ -30,7 +30,7 @@ if(!isset($_SESSION['professor_name'])){
    </style>
 </head>
 
-<body>
+<body class="professor-body">
    <div class="container">
       <div class="content">
          <h3>hello, <span>professor</span></h3>
@@ -40,6 +40,7 @@ if(!isset($_SESSION['professor_name'])){
          <a href="schedule_eval.php" class="btn">Evaluations</a>
          <a href="import_students.php" class="btn">Import Students</a>
          <a href="import_courses.php" class="btn">Import Courses</a>
+         <a href="operational_reporting.php" class="btn">Operational Reporting</a>
       </div>
    
    </div>
