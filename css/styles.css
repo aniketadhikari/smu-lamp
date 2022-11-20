@@ -21,15 +21,18 @@
 
 .container .content {
    text-align: center;
+   padding: 1em;
+   background-color: #151c55a8;
+   border-radius: 1em;
 }
 
 .container .content h3 {
    font-size: 30px;
-   color: black;
+   color: white;
 }
 
 .container .content h3 span {
-   background: #151c55;
+   background: #000000;
    color: #fff;
    border-radius: 5px;
    padding: 3px 15px;
@@ -37,12 +40,12 @@
 
 .container .content h1 {
    font-size: 50px;
-   color: black;
+   color: white;
 }
 
-.container .content h1 span {
+/* .container .content h1 span {
    color: #151c55;
-}
+} */
 
 .container .content p {
    font-size: 25px;
