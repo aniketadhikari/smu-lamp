@@ -3,28 +3,8 @@
 <head>
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<style>
-    .tabs .tab a:hover {
-        background-color: white;
-        color: #151c55;
-    }
-
-    .tabs .tab a {
-        background-color: #151c55;
-        color: white;
-        text-decoration: none;
-        display: list-item;
-    }
-</style>
 <div class="row" style="margin-bottom: 0px; position: sticky; position: -webkit-sticky; top: 0;">
     <ul class="tabs">
-        <li class="tab col m1 indigo darken-4">
-            <a href="../logout.php">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16" style="margin-top: 16px;">
-                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
-                </svg>
-            </a>
-        </li>
         <li class="tab col m1 indigo darken-4">
             <a href="../professor_pages/professor_welcome.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16" style="margin-top: 16px;">
@@ -37,6 +17,13 @@
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/import_students.php">Import Students</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/import_courses.php">Import Courses</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/operational_reporting.php">Reporting</a></li>
+        <li class="tab col m1 indigo darken-4">
+            <a href="../logout.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16" style="margin-top: 16px;">
+                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
+                </svg>
+            </a>
+        </li>
     </ul>
 </div>
 

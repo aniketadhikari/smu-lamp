@@ -11,7 +11,7 @@
 }
 
 .professor-body {
-    background: url('../images/blurred-smu-admin.jpg');
+    background: url('../images/blurred_Singapore_Management_University_School_of_Law_Armeninan_Street.jpg');
     background-size: cover;
     background-repeat: repeat-y;
 }
@@ -35,9 +35,8 @@
     color: white;
 }
 
-label {
-    font-size: 16px;
-    color: white;
+.mail-link:hover {
+    text-decoration: underline;
 }
 
 table {
@@ -50,6 +49,7 @@ th,
 td {
     text-align: center;
     border-radius: 0px;
+    padding: 20px;
 }
 
 .msg {
@@ -98,4 +98,8 @@ textarea {
 
 .chip {
     margin: 0px;
+}
+
+select {
+    display: block;
 }

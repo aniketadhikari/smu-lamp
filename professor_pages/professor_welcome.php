@@ -4,7 +4,7 @@
 
 session_start();
 
-if(!isset($_SESSION['professor_name'])){
+if (!isset($_SESSION['professor_name'])) {
    header('location:../index.php');
 }
 
@@ -12,6 +12,7 @@ if(!isset($_SESSION['professor_name'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,11 +23,11 @@ if(!isset($_SESSION['professor_name'])){
    <link rel="stylesheet" href="../css/styles.css">
    <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
    <style>
-      body {
-            background: url('../images/blurred-smu-admin.jpg');
-            background-size: cover;
-            background-repeat: repeat-y;
-        }
+      .professor-body {
+         background: url('../images/blurred_Singapore_Management_University_School_of_Law_Armeninan_Street.jpg');
+         background-size: cover;
+         background-repeat: repeat-y;
+      }
    </style>
 </head>
 
@@ -42,10 +43,11 @@ if(!isset($_SESSION['professor_name'])){
          <a href="import_courses.php" class="btn">Import Courses</a>
          <a href="operational_reporting.php" class="btn">Operational Reporting</a>
       </div>
-   
+
    </div>
 
-   
+
 
 </body>
+
 </html>

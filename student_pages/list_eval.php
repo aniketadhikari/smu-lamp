@@ -40,8 +40,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../css/pages.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title><?php echo $_SESSION['student_name'] ?>'s Evaluations</title>
 </head>
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
     <div class="title" style="margin: 0px 0px 20px 0px">
         <h4 class="center" style="margin: 0px">Evaluations</h4>
     </div>
-    <div class="container" style="padding: 20px;">
+    <div style="margin: 5em;">
         <div class="row center">
             <table>
                 <thead>
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
                     <?php
                     foreach ($students as $student) {
                     ?>
-                        <tr>
+                        <tr class="hoverable">
                             <td><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></td>
                             <td><a class="mail-link" href="mailto:"><?php echo htmlspecialchars($student['EmailAddress']); ?></a></td>
                             <td><?php echo htmlspecialchars($student['PhoneNumber']); ?></td>
@@ -81,7 +81,6 @@ if (isset($_POST['submit'])) {
                 </tbody>
             </table>
         </div>
-        <hr>
     </div>
     <div class="container" style="background-color: #151c55; padding: 20px;">
         <form action="" method="post">
@@ -91,26 +90,32 @@ if (isset($_POST['submit'])) {
                 <?php foreach ($students as $student) { ?>
                     <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']) . ', ' . htmlspecialchars($student['EmailAddress']); ?></option>
                 <?php } ?>
-            </select><br><br>
+            </select><br>
             <!-- DMK Score -->
-            <label for="dmk">Enter DMK Score</label>
             <input type="number" id="dmk" name="dmk" min="1" max="5" required>
-            <!-- ICScore -->
-            <label for="ic">Enter IC Score</label>
-            <input type="number" id="ic" name="ic" min="1" max="5" required>
-            <!-- IPScore -->
-            <label for="ip">Enter IP Score</label>
-            <input type="number" id="ip" name="ip" min="1" max="5" required>
-            <!-- GCScore -->
-            <label for="gc">Enter GC Score</label>
-            <input type="number" id="gc" name="gc" min="1" max="5" required>
-            <!-- PMScore -->
-            <label for="pm">Enter PM Score</label>
-            <input type="number" id="pm" name="pm" min="1" max="5" required>
+            <label for="dmk">Enter Disciplinary and Multidisciplinary Knowledge Score</label>
 
+            <!-- ICScore -->
+            <input type="number" id="ic" name="ic" min="1" max="5" required>
+            <label for="ic">Enter Intellectual and Creative Score</label>
+
+            <!-- IPScore -->
+            <input type="number" id="ip" name="ip" min="1" max="5" required>
+            <label for="ip">Enter Interpersonal Score</label>
+
+            <!-- GCScore -->
+            <input type="number" id="gc" name="gc" min="1" max="5" required>
+            <label for="gc">Enter Global Citizenship Score</label>
+
+            <!-- PMScore -->
+            <input type="number" id="pm" name="pm" min="1" max="5" required>
+            <label for="pm">Enter Personal Mastery Score</label>
+            <br>
+            <br>
             <input class="btn indigo" type="submit" name="submit" value="submit">
         </form>
     </div>
+    <br>
 </body>
 
 </html>
