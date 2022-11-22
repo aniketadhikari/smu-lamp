@@ -3,51 +3,57 @@
 @include 'config.php';
 
 session_start();
-// if logged in, redirect and go immediately to professor welcome page
-if(isset($_SESSION['professor_name'])){
+
+if(isset($_SESSION['professor_name'])){ // if logged in, redirect and go immediately to professor welcome page
    header('location:professor_pages/professor_welcome.php'); 
 }
 
-// if logged in, redirect and go immediately to student welcome page
-if(isset($_SESSION['student_name'])){
+
+if(isset($_SESSION['student_name'])){ // if logged in, redirect and go immediately to student welcome page
    header('location:student_pages/student_welcome.php'); 
 }
 
-if(isset($_POST['submit'])){
+
+
+if(isset($_POST['submit'])){ // If the login button is clicked, then start checking whether the user exists in the db
 
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
+   $id = md5($_POST['password']);
 
-   $select = " SELECT * FROM Users WHERE EmailAddress = '$email' && Password = '$pass' ";
-
+   // Check if the email address AND the student ID is present in the db 
+   $select = " SELECT * FROM Users WHERE EmailAddress = '$email' && StudentID = '$id' ";
    $result = mysqli_query($conn, $select);
-
-   if(mysqli_num_rows($result) > 0){
+   if(mysqli_num_rows($result) > 0){ // if the user is present in db
 
       $row = mysqli_fetch_array($result);
 
-      if($row['UserType'] == 'professor'){
+      if($row['UserType'] == 'professor'){ // if the user is a professor 
 
-         $_SESSION['professor_name'] = $row['FirstName'];
+         // store professor name for later use
+         $_SESSION['professor_name'] = $row['FirstName']; 
          $professorid_q = " SELECT * FROM Professor WHERE EmailAddress = '$email'";
          $professorid_q_result = mysqli_query($conn, $professorid_q);
          $professorid_q_row = mysqli_fetch_array($professorid_q_result);
-         // store professor id 
+         // store professor id for lateruse
          $_SESSION['professor_id'] = $professorid_q_row['ProfessorID'];
-         header('location:professor_pages/professor_welcome.php');
+         // redirect to the professor welcome page 
+         header('location:professor_pages/professor_welcome.php'); 
 
-      }elseif($row['UserType'] == 'student'){
+      }elseif($row['UserType'] == 'student'){ // if the user is a student 
 
+         // store student name for later use 
          $_SESSION['student_name'] = $row['FirstName'];
          $studentid_q = " SELECT * FROM Student WHERE EmailAddress = '$email'";
          $studentid_q_result = mysqli_query($conn, $studentid_q);
          $studentid_q_row = mysqli_fetch_array($studentid_q_result);
+         // store student id for later use 
          $_SESSION['student_id'] = $studentid_q_row['StudentID'];
+         // redirect to the student welcome page
          header('location:student_pages/student_welcome.php');
 
       }
      
-   }else{
+   }else{ // if user is NOT present in db
       $error[] = 'incorrect email or password!';
    }
 
@@ -117,7 +123,6 @@ if(isset($_POST['submit'])){
          <input type="email" name="email" required placeholder="enter your email">
          <input type="password" name="password" required placeholder="enter your password">
          <input type="submit" name="submit" value="login now" class="form-btn">
-         <p>Don't have an account? <a href="register.php">register now</a></p>
    </form>
 </div>
 </body>
