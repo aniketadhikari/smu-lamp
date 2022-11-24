@@ -10,3 +10,11 @@
     color: white;
     font-family: 'Poppins', sans-serif;
 }
+
+.navbar {
+    z-index: 10;
+    margin-bottom: 0px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}

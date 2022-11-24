@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<div class="row" style="margin-bottom: 0px; position: sticky; position: -webkit-sticky; top: 0;">
+<div class="row navbar">
     <ul class="tabs">
         <li class="tab col m1 indigo darken-4">
             <a href="../professor_pages/professor_welcome.php">
@@ -12,11 +12,12 @@
                 </svg>
             </a>
         </li>
-        <li class="tab col m2 indigo darken-4"><a href="../professor_pages/groups.php">Groups</a></li>
+        <li class="tab col m2 indigo darken-4"><a href="../professor_pages/operational_reporting.php">Reporting</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/schedule_eval.php"> Evaluations</a></li>
+        <li class="tab col m2 indigo darken-4"><a href="../professor_pages/groups.php">Groups</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/import_students.php">Import Students</a></li>
         <li class="tab col m2 indigo darken-4"><a href="../professor_pages/import_courses.php">Import Courses</a></li>
-        <li class="tab col m2 indigo darken-4"><a href="../professor_pages/operational_reporting.php">Reporting</a></li>
+        
         <li class="tab col m1 indigo darken-4">
             <a href="../logout.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16" style="margin-top: 16px;">

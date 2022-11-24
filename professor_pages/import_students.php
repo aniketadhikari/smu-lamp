@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                     <option value="Term 2"> Term 2</option>
                 </select><br>
                 <!-- Grade Level -->
-                <label for="grade_level">Semester: </label><br><br>
+                <label for="grade_level">Grade Level: </label><br><br>
                 <select name="grade_level" id="grade_level" style="display: block;" required>
                     <option value="Freshman">Freshman</option>
                     <option value="Sophomore">Sophomore</option>

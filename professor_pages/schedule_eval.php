@@ -50,15 +50,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../css/pages.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title>Evaluations</title>
-    <style>
-        a.chip-link {
-            color: black;
-        }
-
-        a.chip-link:hover {
-            color: blue;
-        }
-    </style>
 </head>
 
 <body class="professor-body">
@@ -68,14 +59,14 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="container" style="background-color: #151c55; padding: 20px; border-radius: 15px;">
         <form action="" method="post">
-            <label for="student_name">Select student to be <strong>evaluated</strong>, meaning they will be evaluated by another student in the class:</label>
+            <label for="student_name">Which student is being evaluated?</label>
             <select name="student_name" id="student_name" style="display: block;">
                 <?php foreach ($students as $student) { ?>
                     <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></option>
                 <?php } ?>
             </select>
             <br>
-            <label for="evaluator_name">Select student to be <strong>evaluator</strong>, meaning they will be evaluating the previously selected student:</label>
+            <label for="evaluator_name">Which student is doing the evaluating?</label>
             <select name="evaluator_name" id="evaluator_name" style="display: block;">
                 <?php foreach ($students as $student) { ?>
                     <option value="<?php echo htmlspecialchars($student['StudentID']) ?>"><?php echo htmlspecialchars($student['FirstName']) . ' ' . htmlspecialchars($student['LastName']); ?></option>
@@ -113,14 +104,16 @@ if (isset($_POST['submit'])) {
     ?>
     <!-- View Peer Eval Scores  -->
     <div class="container">
-        <?php
-        $professor_id = $_SESSION['professor_id'];
-        $select_peers = "SELECT * FROM PeerAssessment INNER JOIN Student ON PeerAssessment.StudentID=Student.StudentID WHERE ProfessorID=$professor_id";
-        $result_select_peers = mysqli_query($conn, $select_peers);
-        $peers = mysqli_fetch_all($result_select_peers, MYSQLI_ASSOC);
-        foreach ($peers as $peer) {
-        ?>
-            <div class="row center">
+        <div class="row center">
+            <?php
+            $professor_id = $_SESSION['professor_id'];
+            $select_peers = "SELECT * FROM PeerAssessment INNER JOIN Student ON PeerAssessment.StudentID=Student.StudentID WHERE ProfessorID=$professor_id";
+            $result_select_peers = mysqli_query($conn, $select_peers);
+            $peers = mysqli_fetch_all($result_select_peers, MYSQLI_ASSOC);
+
+            foreach ($peers as $peer) {
+            ?>
+
                 <div class="col s6 md3">
                     <div class="card z-depth-2">
                         <div class="card-panel center hoverable">
@@ -150,8 +143,9 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+
+            <?php } ?>
+        </div>
     </div>
 </body>
 

@@ -98,8 +98,18 @@ textarea {
 
 .chip {
     margin: 0px;
+    
 }
 
 select {
     display: block;
+}
+
+.chip-link {
+    color: black;
+}
+
+.chip-link:hover {
+    font-weight: bold;
+    color: black;
 }
