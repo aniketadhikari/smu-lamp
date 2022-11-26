@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../css/pages.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <title><?php echo $_SESSION['student_name'] ?>'s Evaluations</title>
 </head>
 
@@ -57,8 +58,8 @@ if (isset($_POST['submit'])) {
                 <thead>
                     <tr>
                         <th>Student to Evaluate</th>
-                        <th>Email</th>
-                        <th>Phone #</th>
+                        <th>Email <i class="bi bi-envelope-at-fill"></i></th>
+                        <th>Phone <i class="bi bi-telephone-fill"></i></th>
                         <th>Grade Level</th>
                         <th>Major</th>
                         <th>Due Date</th>
