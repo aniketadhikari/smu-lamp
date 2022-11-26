@@ -36,20 +36,13 @@ if (!isset($_SESSION['professor_name'])) {
       <div class="content">
          <h3>Hello, <span>professor</span></h3>
          <h1>Welcome <span><?php echo $_SESSION['professor_name'] ?></span></h1>
-         
          <a href="operational_reporting.php" class="btn">Operational Reporting</a>
          <a href="schedule_eval.php" class="btn">Evaluations</a>
          <a href="groups.php" class="btn">Groups</a>
          <a href="import_students.php" class="btn">Import Students</a>
          <a href="import_courses.php" class="btn">Import Courses</a>
          <a href="../logout.php" class="btn">Logout</a>
-         
       </div>
-
    </div>
-
-
-
 </body>
-
 </html>

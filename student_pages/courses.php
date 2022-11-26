@@ -54,7 +54,10 @@ mysqli_free_result($result);
                 </div>
             <?php } ?>
         </div>
-
+        <br>
+        <div>
+            <?php include '../templates/footer.php' ?>
+        </div>
 </body>
 
 </html>

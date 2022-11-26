@@ -147,6 +147,10 @@ if (isset($_POST['submit'])) {
             <?php } ?>
         </div>
     </div>
+    <br>
+    <div>
+        <?php include '../templates/footer.php' ?>
+    </div>
 </body>
 
 </html>

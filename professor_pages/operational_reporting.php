@@ -114,7 +114,10 @@ $peers = mysqli_fetch_all($result_select_peers, MYSQLI_ASSOC);
             </div>
         </div>
     </div>
-
+    <br>
+    <div>
+        <?php include '../templates/footer.php' ?>
+    </div>
 </body>
 
 </html>
