@@ -75,7 +75,6 @@ if(isset($_POST['submit'])){
         <div class="navbar">
             <nav style="background-color:#151c55; display:flex">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
                 <div class="dd">
                     <button class="ddbtn">Departments</button>
                     <div class="dd-content">
