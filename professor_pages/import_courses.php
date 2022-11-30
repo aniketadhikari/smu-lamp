@@ -23,6 +23,12 @@ if (isset($_POST['submit'])) {
     $section = mysqli_real_escape_string($conn, $_POST['section']);
     // ProfessorID
     $professor_id = intval(mysqli_real_escape_string($conn, $_POST['professor_id']));
+    // Check if professor ID exists 
+    $select_professor = "SELECT * FROM Professor WHERE ProfessorID = $professor_id";
+    $result_professor = mysqli_query($conn, $select_professor);
+    if (mysqli_num_rows($result_professor) == 0) {
+        $error[] = 'Professor does not exist! Try a different ID';
+    }
     // Semester
     $semester = mysqli_real_escape_string($conn, $_POST['semester']);
     // Year
@@ -74,7 +80,7 @@ if (isset($_POST['submit'])) {
             $email = $added_professor[3];
             ?>
 
-            
+
             let ProfessorFirstName = '<?php echo $first_name ?>';
             let ProfessorLastName = '<?php echo $last_name ?>';
             let ProfessorEmail = '<?php echo $email ?>';
@@ -94,9 +100,14 @@ if (isset($_POST['submit'])) {
         <?php
         if (isset($error)) {
             foreach ($error as $error) {
-                echo '<span class="error-msg">' . $error . '</span>';
+                echo '<div class="error-container">';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
+                        <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                      </svg><span class="msg">' . $error . '</span>';
+                echo '</div>';
             };
-        };
+        }
         ?>
 
         <br>
@@ -109,14 +120,30 @@ if (isset($_POST['submit'])) {
                 <label for="program">Program: </label><br>
                 <input type="text" id="program" name="program" placeholder="Ex. Business Management" required></input><br>
                 <!-- Day -->
-                <label for="day">Day: </label><br>
-                <input type="text" id="day" name="day" placeholder="Ex. Monday" required></input><br>
+                <label for="day">Day: </label><br><br>
+                <select name="day" id="day" style="display: block;">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                </select><br>
                 <!-- Section -->
                 <label for="section">Section: </label><br>
                 <input type="text" id="section" name="section" placeholder="Ex. 10:30" required></input><br>
                 <!-- ProfessorID -->
-                <label for="professor_id">Professor ID: </label><br>
-                <input type="text" id="professor_id" name="professor_id" placeholder="Ex. 1" required></input><br>
+                <label for="professor_id">Professor: </label><br><br>
+                <select name="professor_id" id="professor_id" style="display: block;">
+                <?php
+                $all_professors = "SELECT ProfessorID, FirstName, LastName FROM Professor";
+                $all_professors_result = mysqli_query($conn, $all_professors);
+                $all_professors_rows = mysqli_fetch_all($all_professors_result, MYSQLI_ASSOC);
+                foreach ($all_professors_rows as $professor_row) {
+                ?>
+                <option value="<?php echo htmlspecialchars($professor_row['ProfessorID']); ?>"><?php echo htmlspecialchars($professor_row['FirstName']) . ' ' . htmlspecialchars($professor_row['LastName']);; ?></option>
+
+                <?php } ?>
+                </select><br>
                 <!-- Semester -->
                 <label for="semester">Semester: </label><br><br>
                 <select name="semester" id="semester" style="display: block;" required>
