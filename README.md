@@ -1,6 +1,7 @@
 # For External Testing: 
 * If there are issues connecting to DB in MySQL, the username and password can be requested from aniket19@vt.edu
 * Sometimes, logging into the website is not possible because you don't have access to the DB on a localhost
+* Link to [GitHub Repo](https://github.com/aniketadhikari/smu-lamp)
 
 # Decision Support Systems Team Project
 Analysis, design, and implementation of a complete web-based software system using an Agile software development process. Apart of the BIT 4454 (Business Analysis Seminar in IT) class for Professor Alan Abrahams. 
