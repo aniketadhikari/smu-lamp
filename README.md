@@ -1,4 +1,9 @@
 # For External Testing: 
+1. Download zip
+2. Extract all 
+3. Place in directory to `localhost` 
+4. Open in browser for use 
+
 * If there are issues connecting to DB in MySQL, the username and password can be requested from aniket19@vt.edu
 * Sometimes, logging into the website is not possible because you don't have access to the DB on a localhost
 * Link to [GitHub Repo](https://github.com/aniketadhikari/smu-lamp)
