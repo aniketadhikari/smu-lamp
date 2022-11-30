@@ -6,6 +6,12 @@ if (!isset($_SESSION['professor_name'])) {
     header('location:../index.php');
 }
 
+$first_name = "N/a";
+$last_name = "N/a";
+$email = "N/a";
+$course_name = "N/a";
+$professor_id = -1;
+
 if (isset($_POST['submit'])) {
     // Course Name
     $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
@@ -22,7 +28,7 @@ if (isset($_POST['submit'])) {
     // Year
     $year = mysqli_real_escape_string($conn, $_POST['year']);
     $insert = "INSERT INTO Course(CourseName, Program, Day, Section, ProfessorID, Semester, Year) VALUES('$course_name', '$program', '$day', '$section', '$professor_id', '$semester', '$year')";
-    mysqli_query($conn, $insert);
+    // mysqli_query($conn, $insert);
 }
 ?>
 
@@ -36,6 +42,47 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title>Import Courses</title>
+    <script>
+        async function updateCourse(ProfessorFirstName, ProfessorLastName, ProfessorEmail, CourseName) {
+            let apiUrl = "https://prod-123.westus.logic.azure.com:443/workflows/f0eb2c97298a4ccdad7190d2725be0ab/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uN8okuEe_kT8Q9Nn60S71t8eICQG76WtRHtg3MgcXJE";
+            let body = {
+                "FirstName": ProfessorFirstName,
+                "LastName": ProfessorLastName,
+                "EmailAddress": ProfessorEmail,
+                "CourseName": CourseName
+            };
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
+            const results = await response.json();
+            console.log(results);
+            console.log("Working");
+            // return results;
+        }
+
+        async function submitCourse() {
+            <?php
+            $find_professor_query = "SELECT * FROM Professor WHERE ProfessorID=$professor_id";
+            $find_professor_result = mysqli_query($conn, $find_professor_query);
+            $added_professor = mysqli_fetch_row($find_professor_result);
+            $first_name = $added_professor[1];
+            $last_name = $added_professor[2];
+            $email = $added_professor[3];
+            ?>
+
+            
+            let ProfessorFirstName = '<?php echo $first_name ?>';
+            let ProfessorLastName = '<?php echo $last_name ?>';
+            let ProfessorEmail = '<?php echo $email ?>';
+            let CourseName = '<?php echo $course_name ?>';
+            console.log("Course " + CourseName + " created for Professor " + ProfessorFirstName + " " + ProfessorLastName);
+            await updateCourse(ProfessorFirstName, ProfessorLastName, ProfessorEmail, CourseName);
+        }
+    </script>
 </head>
 
 <body class="professor-body">
@@ -82,7 +129,7 @@ if (isset($_POST['submit'])) {
                 <label for="year">Year: </label><br>
                 <input type="text" id="year" name="year" readonly value="2022" style="color: grey; cursor: not-allowed;"></input><br>
                 <!-- Submit Button -->
-                <input class="btn blue darken-4" type="submit" name="submit" value="Schedule">
+                <input class="btn blue darken-4" type="submit" name="submit" value="Schedule" onclick="submitCourse()">
             </form>
         </div>
     </div>

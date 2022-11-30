@@ -17,7 +17,7 @@
     }
   </style>
 </head>
-<footer class="page-footer">
+<footer class="page-footer hoverable">
   <div class="container">
     <div class="row bottom-foot">
       <div class="col l6 s12">
@@ -28,8 +28,8 @@
         <hr>
         <div>© 2022 Copyright Text </div>
       </div>
-      <div class="col l4 offset-l2 s12">
-        <img src="https://www.smu.edu.sg/sites/default/files/smu-logo.jpg" alt="" width="250px">
+      <div class="col l4 offset-l2 s10">
+        <img src="https://www.smu.edu.sg/sites/default/files/smu-logo.jpg" alt="" width="300px">
       </div>
     </div>
   </div>
