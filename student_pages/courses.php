@@ -41,10 +41,10 @@ mysqli_free_result($result);
             <?php foreach ($courses as $course) { ?>
                 <!-- create a card for each course -->
                 <div class="col s6 md3">
-                    <div class="card z-depth-2">
+                    <div class="card">
                         <div class="card-panel center" style="background-color: #151c55; color: white;">
                             <div class="card-title">
-                                <h5><?php echo htmlspecialchars($course['CourseName']); ?></h5>
+                                <h6><?php echo htmlspecialchars($course['CourseName']); ?></h6>
                             </div>
                             <div class="card-content">
                                 <p><?php echo htmlspecialchars($course['Program']); ?></p>
@@ -55,9 +55,11 @@ mysqli_free_result($result);
             <?php } ?>
         </div>
         <br>
-        <div>
-            <?php include '../templates/footer.php' ?>
-        </div>
+
+    </div>
+    <div>
+        <?php include '../templates/footer.php' ?>
+    </div>
 </body>
 
 </html>

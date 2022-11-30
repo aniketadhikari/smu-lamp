@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<div class="row" style="margin-bottom: 0px;  position: sticky; position: -webkit-sticky; top: 0;">
+<div class="row navbar">
     <ul class="tabs">
         <li class="tab col m3 indigo darken-4">
             <a href="student_welcome.php">
