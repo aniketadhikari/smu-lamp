@@ -1,6 +1,27 @@
 # For External Testing: 
-* If there are issues connecting to DB in MySQL, the username and password can be requested from aniket19@vt.edu
-* Sometimes, logging into the website is not possible because you don't have access to the DB on a localhost
+1. Download zip
+2. Extract all 
+3. Place in directory to `localhost` 
+4. Open in browser for use 
+
+## URLs and Passwords 
+* [Website URL](http://smu-peers.net/) 
+* [GitHub](https://github.com/aniketadhikari/smu-lamp)
+
+*Login for Professors* 
+* **User**: stevenburik@smu.edu.sg
+* **Pass**: sb
+
+*Login for Student*
+* **User**: johndevers@business.smu.edu.sg
+* **Pass**: jd
+
+*Login for MySQL DB*
+* **User**: dbmasteruser
+* **Pass**: 05I&v6(0oSqKy_]7VN<y>hcPE?fP09hi
+* **Endpoint**: ls-f8a81eefb57f0e1cf205404ff33873c8d89e6eb7.clc5keeyqtbv.us-east-1.rds.amazonaws.com
+
+
 
 # Decision Support Systems Team Project
 Analysis, design, and implementation of a complete web-based software system using an Agile software development process. Apart of the BIT 4454 (Business Analysis Seminar in IT) class for Professor Alan Abrahams. 
@@ -11,6 +32,6 @@ Build a web application which will allow students working in team project to do 
 * allow the professor to create student groups (DONE)
 * allow the professor to schedule peer evaluations (DONE)
 * allow the student to complete peer evaluations (DONE)
-* provide operational reporting, for all of the above
+* provide operational reporting, for all of the above (DONE)
 
 Note that your project should be customized to Singapore Management University’s needs: consult the smu.edu.sg website for information on SMU branding, SMU courses, SMU semesters, etc.  Projects that include only VT branding, VT courses, VT semesters, etc. will lose points.

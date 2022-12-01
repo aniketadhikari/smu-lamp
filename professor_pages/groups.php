@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
             <div>
                 <label for="group_id">Enter Group ID:</label>
                 <br>
-                <input type="" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
+                <input type="number" minlength="1" maxlength="2" name="group_id" required placeholder="Enter Number">
             </div>
             <br>
             <input class="btn blue darken-4" type="submit" name="submit" value="Assign Group">

@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1408402010/bxqs0rvkbgqwgnnfnhu0.jpg">
     <title>Import Courses</title>
+    <script src="../scripts/import_courses.js"></script>
     <script>
         async function updateCourse(ProfessorFirstName, ProfessorLastName, ProfessorEmail, CourseName) {
             let apiUrl = "https://prod-123.westus.logic.azure.com:443/workflows/f0eb2c97298a4ccdad7190d2725be0ab/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uN8okuEe_kT8Q9Nn60S71t8eICQG76WtRHtg3MgcXJE";
@@ -94,7 +95,7 @@ if (isset($_POST['submit'])) {
 <body class="professor-body">
     <?php include '../templates/professor_nav.php' ?>
     <div class="title" style="margin: 0px 0px 20px 0px">
-        <h4 class="center" style="margin: 0px">Import Courtses</h4>
+        <h4 class="center" style="margin: 0px">Import Courses</h4>
     </div>
     <div class="container">
         <?php
