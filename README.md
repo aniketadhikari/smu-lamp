@@ -31,3 +31,7 @@ Build a web application which will allow students working in team project to do 
 * provide operational reporting, for all of the above (DONE)
 
 Note that your project should be customized to Singapore Management University’s needs: consult the smu.edu.sg website for information on SMU branding, SMU courses, SMU semesters, etc.  Projects that include only VT branding, VT courses, VT semesters, etc. will lose points.
+<img width="1373" alt="Home Screen for a Professor" src="https://github.com/aniketadhikari/smu-lamp/assets/67086347/b849972c-556f-4132-977f-d4e99376f1a2">
+<img width="1361" alt="View of Peer Evaluations Made from Students" src="https://github.com/aniketadhikari/smu-lamp/assets/67086347/eb75b8c0-01db-42cf-bd6c-48182fa42f7e">
+<img width="1368" alt="Login Screen" src="https://github.com/aniketadhikari/smu-lamp/assets/67086347/6255b590-2652-4202-b732-7143835d574c">
+<img width="1364" alt="Operational Reporitng for Student Scores" src="https://github.com/aniketadhikari/smu-lamp/assets/67086347/a4217ff5-b677-4d0c-bfd6-06ab381bcab2">
