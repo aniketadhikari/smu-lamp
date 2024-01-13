@@ -1,3 +1,7 @@
+# IMPORTANT NOTE:
+
+Website is no longer hosted at smu-peers.net so as to avoid recurring costs of hosting.
+
 # For External Testing: 
 * If there are issues connecting to DB in MySQL, the username and password can be requested from aniket19@vt.edu
 * Sometimes, logging into the website is not possible because you don't have access to the DB on a localhost
